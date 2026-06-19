@@ -1,753 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMT Adoption Report — 16-06-2026</title>
-  <style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: #1a1a1a; padding: 32px; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    @media print { body { padding: 20px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MMT Adoption Report — 19 Jun 2026</title>
+<style>*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,sans-serif;padding:28px 32px;background:#f0f0ee;color:#1a1a1a;}
+.report-wrapper{background:#fff;max-width:980px;margin:0 auto;padding:28px 32px;border-radius:12px;}
+.rh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;}
+.rt{font-size:18px;font-weight:500;margin-bottom:4px;}
+.rs{font-size:13px;color:#6b6b68;}
+.wb{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:8px;padding:8px 12px;text-align:right;line-height:1.9;}
+.wb b{color:#1a1a1a;font-weight:500;}
+.ai-box{background:#f5f5f3;border-left:2px solid #534AB7;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:1.25rem;font-size:13px;line-height:1.6;}
+.ai-lbl{font-size:11px;font-weight:600;color:#534AB7;margin-bottom:6px;}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
+.sc{background:#f5f5f3;border-radius:8px;padding:12px 14px;border:0.5px solid #e0e0db;}
+.sl{font-size:12px;color:#6b6b68;margin-bottom:4px;}
+.sv{font-size:20px;font-weight:500;}
+.ss{font-size:11px;color:#6b6b68;border-top:0.5px solid #e0e0db;padding-top:5px;margin-top:6px;}
+.sec-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;margin-top:1.75rem;}
+.sec-l{display:flex;align-items:center;gap:8px;}
+.st{font-size:15px;font-weight:500;}
+.sc2{font-size:12px;color:#6b6b68;background:#f5f5f3;border-radius:20px;padding:2px 10px;border:0.5px solid #e0e0db;}
+.srt{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6b68;}
+.srt select{font-size:12px;color:#1a1a1a;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:4px 8px;cursor:pointer;outline:none;}
+.wnote{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:6px 12px;margin-bottom:10px;}
+.pos{color:#3B6D11;font-weight:600;}.neg{color:#A32D2D;font-weight:600;}
+.lgrow{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
+.lglbl{font-size:11px;color:#6b6b68;}
+.qw{position:relative;display:inline-flex;align-items:center;}
+.qi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#534AB7;color:#fff;font-size:11px;font-weight:700;cursor:pointer;user-select:none;}
+.qp{display:none;position:absolute;top:24px;left:0;z-index:200;background:#fff;border:1px solid #e0e0db;border-radius:10px;padding:12px 14px;min-width:270px;box-shadow:0 4px 16px rgba(0,0,0,.12);}
+.qp.open{display:block;}.qpt{font-size:12px;font-weight:600;margin-bottom:8px;}
+.qpr{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.qpct{font-size:11px;color:#6b6b68;min-width:80px;}
+.qpd{font-size:11px;color:#6b6b68;margin-top:8px;padding-top:8px;border-top:0.5px solid #e0e0db;line-height:1.5;}
+.badge{display:inline-flex;font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
+.hq{background:#EAF3DE;color:#27500A;}.gq{background:#E6F1FB;color:#0C447C;}
+.mq{background:#FAEEDA;color:#633806;}.lq{background:#FCEBEB;color:#791F1F;}
+.sj{background:#EEEDFE;color:#3C3489;}.dm{background:#F1EFE8;color:#444441;}
+table{width:100%;border-collapse:collapse;table-layout:fixed;border:1px solid #d8d8d4;border-radius:8px;overflow:hidden;}
+thead{background:#f5f5f3;}
+thead tr{border-bottom:1px solid #d8d8d4;}
+th{font-size:11px;font-weight:500;color:#6b6b68;text-align:left;padding:8px 10px;text-transform:uppercase;letter-spacing:.04em;border-right:1px solid #e0e0db;}
+th:last-child{border-right:none;}
+th.rc{text-align:center;}
+tbody tr{border-bottom:1px solid #e0e0db;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:#fafaf8;}
+td{padding:9px 10px;font-size:13px;vertical-align:middle;border-right:1px solid #e0e0db;}
+td:last-child{border-right:none;}
+.en{font-weight:500;font-size:13px;margin-bottom:3px;}
+.mc{text-align:center;}.mv{font-size:13px;font-weight:500;}
+.md{font-size:11px;margin-top:2px;}
+.du{color:#3B6D11;}.dd{color:#A32D2D;}.df{color:#6b6b68;}
+.qv{font-size:13px;font-weight:500;}.qna{font-size:13px;color:#6b6b68;}</style>
 </head>
 <body>
-<div class="wrap">
-
-  <!-- Header -->
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:16px">
-    <div>
-      <h1 style="font-size:22px;font-weight:700;letter-spacing:-.01em">MMT adoption report</h1>
-      <p style="color:#6b6b68;font-size:13px;margin-top:3px">Generated 16-06-2026</p>
-    </div>
-    <div style="background:#f5f5f3;border:1px solid #e0e0db;border-radius:6px;padding:10px 14px;font-size:12px;line-height:1.7;text-align:right">
-      <div><span style="color:#6b6b68">Current window</span> &nbsp;<strong>10 Jun 2026 00:00 - 16 Jun 2026 23:59</strong></div>
-      <div><span style="color:#6b6b68">Previous window</span> &nbsp;<strong>03 Jun 2026 00:00 - 09 Jun 2026 23:59</strong></div>
+<div class="report-wrapper">
+<div class="rh">
+  <div><p class="rt">MMT adoption report</p><p class="rs">Generated on 19 Jun 2026</p></div>
+  <div class="wb">
+    <div>Current window &nbsp;<b>13 Jun 2026 – 19 Jun 2026</b></div>
+    <div>Previous window <b>06 Jun 2026 – 12 Jun 2026</b></div>
+  </div>
+</div>
+<div class="ai-box">
+  <div class="ai-lbl">&#10022; AI summary</div>
+  Primetals MS is the week's standout — surged from 0 to 144 progress changes (new activation) with moderate quality at 10%. CtrlS holds steady at 66 changes with good quality (29%). VALMET, SRF, Danieli Corus, and SOPAN all dropped significantly vs last window — worth a check-in. On the expeditor side, Sushmita newly activated with 116 changes at moderate quality (13%). Abhinav continues strong at 49 changes with good quality (37%). Anil Mundhe dropped sharply from 65 to just 4 changes; mrutyunjaya declined to 7.
+</div>
+<div class="sg">
+  <div class="sc"><div class="sl">Total updates</div><div class="sv">399</div><div class="ss">vs 736 in previous window</div></div>
+  <div class="sc"><div class="sl">Progress changes</div><div class="sv">305</div><div class="ss">vs 511 in previous window</div></div>
+  <div class="sc"><div class="sl">Active clients</div><div class="sv">9 / 12</div><div class="ss">Progress change &gt; 0 in current window</div></div>
+  <div class="sc"><div class="sl">Active expeditors</div><div class="sv">13 / 17</div><div class="ss">Progress change &gt; 0 in current window</div></div>
+</div>
+<div class="sec-top">
+  <div class="sec-l"><span class="st">Client activity</span><span class="sc2">12 clients</span></div>
+  <div class="srt">Sort by
+    <select onchange="sortTable('cb',this.value)">
+      <option value="name">Name (A&#8211;Z)</option>
+      <option value="progress">Progress change</option>
+    </select>
+  </div>
+</div>
+<div class="wnote">
+  <span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current vs previous window &nbsp;&middot;&nbsp;
+  Previous: <strong>06 Jun 2026 – 12 Jun 2026</strong> &nbsp;&middot;&nbsp;
+  Current: <strong>13 Jun 2026 – 19 Jun 2026</strong>
+</div>
+<div class="lgrow">
+  <span class="lglbl">Quality badge</span>
+  <div class="qw">
+    <span class="qi" id="qic">?</span>
+    <div class="qp" id="qpc">
+      <div class="qpt">How quality is calculated</div>
+      <div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>
+      <div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 – 49%</span></div>
+      <div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 – 19%</span></div>
+      <div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>
+      <div class="qpr"><span class="badge sj">Subjective only</span><span class="qpct">No progress</span></div>
+      <div class="qpr"><span class="badge dm">Dormant</span><span class="qpct">All zero</span></div>
+      <div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change.</div>
     </div>
   </div>
-
-  <!-- AI Summary -->
-  <div style="background:#f5f5f3;border-left:3px solid #534AB7;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:28px">
-    <div style="font-size:11px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px">AI summary</div>
-    <p style="font-size:13.5px;line-height:1.65;color:#1a1a1a">CtrlS is the top performer with 167 points (up from 1), followed by Danieli Corus (72, +260%) and SRF (65, +282%), while Thermax Enviro was newly activated. VALMET has collapsed from 269 to 70 points (−74%), SOPAN dropped 56%, and Primetals MS and Zeeco are now dormant. Bharat Chordiya leads expeditors with 87 points (newly active), while Anil Mundhe (65) shows strong growth, though mrutyunjaya declined from 269 to 70.</p>
+  <span class="badge hq">High quality</span>
+  <span class="badge gq">Good quality</span>
+  <span class="badge mq">Moderate</span>
+  <span class="badge lq">Low quality</span>
+  <span class="badge sj">Subjective only</span>
+  <span class="badge dm">Dormant</span>
+</div>
+<table>
+  <thead><tr>
+    <th style="width:22%">Client</th>
+    <th class="rc" style="width:14%">Progress change</th>
+    <th class="rc" style="width:11%">Comments</th>
+    <th class="rc" style="width:10%">Issues</th>
+    <th class="rc" style="width:13%">Critical updates</th>
+    <th class="rc" style="width:10%">Quality %</th>
+  </tr></thead>
+  <tbody id="cb">
+    <tr data-name="ctrls" data-progress="66">
+      <td>
+        <div class="en">CtrlS</div>
+        <span class="badge gq">Good quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,5 13,5 26,5 39,2 52,16 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">66</div><div class="md dd">&#8722;53</div></td>
+      <td class="mc"><div class="mv">6</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">11</div><div class="md du">+6</div></td>
+      <td class="mc"><span class="qv">29%</span></td>
+    </tr>
+    <tr data-name="danieli corus" data-progress="22">
+      <td>
+        <div class="en">Danieli Corus</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,10 13,8 26,2 39,2 52,7 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">22</div><div class="md dd">&#8722;34</div></td>
+      <td class="mc"><div class="mv">16</div><div class="md du">+5</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><span class="qv">73%</span></td>
+    </tr>
+    <tr data-name="jnk" data-progress="0">
+      <td>
+        <div class="en">JNK</div>
+        <span class="badge dm">Dormant</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,13 13,13 26,13 39,13 52,13 65,13 80,13" fill="none" stroke="#888780" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="primetals ms" data-progress="144">
+      <td>
+        <div class="en">Primetals MS</div>
+        <span class="badge mq">Moderate</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,26 52,26 65,13 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">144</div><div class="md du">+144</div></td>
+      <td class="mc"><div class="mv">15</div><div class="md du">+15</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">10%</span></td>
+    </tr>
+    <tr data-name="sopan" data-progress="22">
+      <td>
+        <div class="en">SOPAN</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,3 13,2 26,6 39,23 52,5 65,22 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">22</div><div class="md dd">&#8722;23</div></td>
+      <td class="mc"><div class="mv">21</div><div class="md dd">&#8722;51</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">95%</span></td>
+    </tr>
+    <tr data-name="srf" data-progress="10">
+      <td>
+        <div class="en">SRF</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,6 39,6 52,4 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">10</div><div class="md dd">&#8722;65</div></td>
+      <td class="mc"><div class="mv">10</div><div class="md dd">&#8722;77</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;11</div></td>
+      <td class="mc"><span class="qv">100%</span></td>
+    </tr>
+    <tr data-name="thermax" data-progress="0">
+      <td>
+        <div class="en">Thermax</div>
+        <span class="badge dm">Dormant</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,13 13,13 26,13 39,13 52,13 65,13 80,13" fill="none" stroke="#888780" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="thermax enviro" data-progress="6">
+      <td>
+        <div class="en">Thermax Enviro</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,2 52,2 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">6</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="valmet" data-progress="10">
+      <td>
+        <div class="en">Valmet</div>
+        <span class="badge gq">Good quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,26 52,24 65,24 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">10</div><div class="md du">+10</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md du">+2</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">20%</span></td>
+    </tr>
+    <tr data-name="valmet" data-progress="7">
+      <td>
+        <div class="en">VALMET</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,16 39,16 52,15 65,22 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">7</div><div class="md dd">&#8722;180</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="zeeco" data-progress="0">
+      <td>
+        <div class="en">Zeeco</div>
+        <span class="badge dm">Dormant</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,13 13,13 26,13 39,13 52,13 65,13 80,13" fill="none" stroke="#888780" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="zetwerk" data-progress="18">
+      <td>
+        <div class="en">Zetwerk</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,16 13,18 26,18 39,2 52,7 65,18 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </td>
+      <td class="mc"><div class="mv">18</div><div class="md dd">&#8722;11</div></td>
+      <td class="mc"><div class="mv">11</div><div class="md dd">&#8722;8</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;5</div></td>
+      <td class="mc"><span class="qv">61%</span></td>
+    </tr>
+  </tbody>
+</table>
+<div class="sec-top" style="margin-top:2rem;">
+  <div class="sec-l"><span class="st">Expeditor activity</span><span class="sc2">17 expeditors</span></div>
+  <div class="srt">Sort by
+    <select onchange="sortTable('eb',this.value)">
+      <option value="name">Name (A&#8211;Z)</option>
+      <option value="progress">Progress change</option>
+    </select>
   </div>
-
-  <!-- Summary cards -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:40px">
-    <div style="background:#f5f5f3;border:1px solid #e0e0db;border-radius:8px;padding:18px 20px">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b6b68;margin-bottom:8px">Total updates</div>
-      <div style="font-size:26px;font-weight:700;line-height:1">677</div>
-      <div style="font-size:12px;color:#6b6b68;margin-top:6px">vs 564 previous window</div>
-    </div>
-    <div style="background:#f5f5f3;border:1px solid #e0e0db;border-radius:8px;padding:18px 20px">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b6b68;margin-bottom:8px">Progress changes</div>
-      <div style="font-size:26px;font-weight:700;line-height:1">449</div>
-      <div style="font-size:12px;color:#6b6b68;margin-top:6px">vs 417 previous window</div>
-    </div>
-    <div style="background:#f5f5f3;border:1px solid #e0e0db;border-radius:8px;padding:18px 20px">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b6b68;margin-bottom:8px">Active clients</div>
-      <div style="font-size:26px;font-weight:700;line-height:1">7 <span style="font-size:18px;font-weight:400;color:#6b6b68">/ 12</span></div>
-      <div style="font-size:12px;color:#6b6b68;margin-top:6px">Progress change &gt; 0 current window</div>
-    </div>
-    <div style="background:#f5f5f3;border:1px solid #e0e0db;border-radius:8px;padding:18px 20px">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6b6b68;margin-bottom:8px">Active expeditors</div>
-      <div style="font-size:26px;font-weight:700;line-height:1">12 <span style="font-size:18px;font-weight:400;color:#6b6b68">/ 17</span></div>
-      <div style="font-size:12px;color:#6b6b68;margin-top:6px">Progress change &gt; 0 current window</div>
+</div>
+<div class="wnote">
+  <span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current vs previous window &nbsp;&middot;&nbsp;
+  Previous: <strong>06 Jun 2026 – 12 Jun 2026</strong> &nbsp;&middot;&nbsp;
+  Current: <strong>13 Jun 2026 – 19 Jun 2026</strong>
+</div>
+<div class="lgrow">
+  <span class="lglbl">Quality badge</span>
+  <div class="qw">
+    <span class="qi" id="qie">?</span>
+    <div class="qp" id="qpe">
+      <div class="qpt">How quality is calculated</div>
+      <div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>
+      <div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 – 49%</span></div>
+      <div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 – 19%</span></div>
+      <div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>
+      <div class="qpr"><span class="badge sj">Engaged &#183; No progress</span><span class="qpct">No progress</span></div>
+      <div class="qpr"><span class="badge dm">Inactive</span><span class="qpct">All zero</span></div>
+      <div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change.</div>
     </div>
   </div>
-
-  <section style="margin-bottom:48px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
-        <h2 style="font-size:16px;font-weight:600">Client activity</h2>
-        <span style="font-size:12px;color:#6b6b68">12 clients · sorted by progress change ↓</span>
-      </div>
-      <div style="margin-bottom:12px;font-size:12px;color:#6b6b68;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
-        <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Adopted · High quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#E6F1FB;color:#0C447C;white-space:nowrap">Adopted · Good quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FAEEDA;color:#633806;white-space:nowrap">Adopted · Moderate</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Adopted · Low quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EEEDFE;color:#3C3489;white-space:nowrap">Subjective only</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span>
-        <span style="color:#c0c0bb;margin-left:2px">Quality = (Comments + Issues + Critical) ÷ Progress change</span>
-      </div>
-      
-      <div style="overflow-x:auto;border:1px solid #e0e0db;border-radius:8px">
-        <table style="width:100%;border-collapse:collapse;font-size:13.5px">
-          <thead>
-            <tr style="background:#f5f5f3;border-bottom:1px solid #e0e0db">
-              <th style="padding:10px 14px;text-align:left;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Client</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Progress change</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68">Comments</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68">Issues</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Critical updates</th>
-              <th style="padding:10px 14px;text-align:left;font-weight:500;font-size:12px;color:#6b6b68">Trend (7d)</th>
-            </tr>
-          </thead>
-          <tbody><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">CtrlS</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FAEEDA;color:#633806;white-space:nowrap">Adopted · Moderate</span></div>
+  <span class="badge hq">High quality</span>
+  <span class="badge gq">Good quality</span>
+  <span class="badge mq">Moderate</span>
+  <span class="badge lq">Low quality</span>
+  <span class="badge sj">Engaged &#183; No progress</span>
+  <span class="badge dm">Inactive</span>
+</div>
+<table>
+  <thead><tr>
+    <th style="width:22%">Expeditor</th>
+    <th class="rc" style="width:14%">Progress change</th>
+    <th class="rc" style="width:11%">Comments</th>
+    <th class="rc" style="width:10%">Issues</th>
+    <th class="rc" style="width:13%">Critical updates</th>
+    <th class="rc" style="width:10%">Quality %</th>
+  </tr></thead>
+  <tbody id="eb">
+    <tr data-name="abhinav" data-progress="49">
+      <td>
+        <div class="en">Abhinav</div>
+        <span class="badge gq">Good quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,2 52,2 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">167</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+166</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">13</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+13</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">3</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+3</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">12</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+12</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,26 39,26 52,26 65,3.7 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Danieli Corus</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#E6F1FB;color:#0C447C;white-space:nowrap">Adopted · Good quality</span></div>
+      <td class="mc"><div class="mv">49</div><div class="md du">+49</div></td>
+      <td class="mc"><div class="mv">6</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md du">+2</div></td>
+      <td class="mc"><div class="mv">10</div><div class="md du">+10</div></td>
+      <td class="mc"><span class="qv">37%</span></td>
+    </tr>
+    <tr data-name="aman" data-progress="0">
+      <td>
+        <div class="en">Aman</div>
+        <span class="badge dm">Inactive</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,13 13,13 26,13 39,13 52,13 65,13 80,13" fill="none" stroke="#888780" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">72</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+52</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">23</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+16</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−5</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−3</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,24.2 26,9.4 39,9.8 52,7.5 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">VALMET</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Adopted · Low quality</span></div>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="amit kumar goon" data-progress="1">
+      <td>
+        <div class="en">Amit Kumar Goon</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,4 26,4 39,3 52,3 65,16 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">70</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−199</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−6</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,8.7 13,13.6 26,2 39,3.8 52,3.8 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">SRF</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Adopted · High quality</span></div>
+      <td class="mc"><div class="mv">1</div><div class="md dd">&#8722;20</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;4</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;4</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="anil mundhe" data-progress="4">
+      <td>
+        <div class="en">Anil Mundhe</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,4 39,4 52,4 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">65</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+48</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">84</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+71</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">11</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+11</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,24.8 13,26 26,2 39,2 52,2 65,5.9 80,5.9" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="5.9" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Zetwerk</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Adopted · High quality</span></div>
+      <td class="mc"><div class="mv">4</div><div class="md dd">&#8722;66</div></td>
+      <td class="mc"><div class="mv">10</div><div class="md dd">&#8722;77</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;11</div></td>
+      <td class="mc"><span class="qv">250%</span></td>
+    </tr>
+    <tr data-name="bapi" data-progress="22">
+      <td>
+        <div class="en">Bapi</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,21 26,2 39,2 52,2 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">45</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+24</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">29</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+5</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">2</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">5</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+5</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,21.6 13,26 26,20.2 39,13.6 52,15.1 65,15.1 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">SOPAN</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Adopted · High quality</span></div>
+      <td class="mc"><div class="mv">22</div><div class="md du">+21</div></td>
+      <td class="mc"><div class="mv">16</div><div class="md du">+16</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">73%</span></td>
+    </tr>
+    <tr data-name="bharat chordiya" data-progress="6">
+      <td>
+        <div class="en">Bharat Chordiya</div>
+        <span class="badge mq">Moderate</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,2 39,2 52,22 65,25 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">24</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−31</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">44</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−25</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,17.7 26,9.4 39,13.1 52,12.2 65,14.9 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Thermax Enviro</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Adopted · Low quality</span></div>
+      <td class="mc"><div class="mv">6</div><div class="md dd">&#8722;81</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;7</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md dd">&#8722;4</div></td>
+      <td class="mc"><span class="qv">17%</span></td>
+    </tr>
+    <tr data-name="bhargava" data-progress="16">
+      <td>
+        <div class="en">Bhargava</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,26 52,26 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">6</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+6</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,26 39,26 52,26 65,14 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">JNK</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span></div>
+      <td class="mc"><div class="mv">16</div><div class="md du">+16</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="drashti" data-progress="6">
+      <td>
+        <div class="en">Drashti</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,14 39,2 52,2 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Primetals MS</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span></div>
+      <td class="mc"><div class="mv">6</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="gopi" data-progress="22">
+      <td>
+        <div class="en">Gopi</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,3 13,2 26,6 39,23 52,5 65,22 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−15</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−4</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−6</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−4</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,26 26,26 39,26 52,26 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Thermax</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span></div>
+      <td class="mc"><div class="mv">22</div><div class="md dd">&#8722;23</div></td>
+      <td class="mc"><div class="mv">21</div><div class="md dd">&#8722;51</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">95%</span></td>
+    </tr>
+    <tr data-name="gourav" data-progress="0">
+      <td>
+        <div class="en">gourav</div>
+        <span class="badge dm">Inactive</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,10 39,10 52,26 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−3</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Valmet</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span></div>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;15</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;11</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="mrutyunjaya" data-progress="7">
+      <td>
+        <div class="en">mrutyunjaya</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,16 39,16 52,15 65,22 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Zeeco</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Dormant</span></div>
+      <td class="mc"><div class="mv">7</div><div class="md dd">&#8722;180</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="mujakkirali" data-progress="16">
+      <td>
+        <div class="en">Mujakkirali</div>
+        <span class="badge hq">High quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,2 52,11 65,11 80,12" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−19</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,26 26,26 39,26 52,26 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr></tbody>
-        </table>
-      </div>
-    </section>
-  <section style="margin-bottom:48px">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
-        <h2 style="font-size:16px;font-weight:600">Expeditor activity</h2>
-        <span style="font-size:12px;color:#6b6b68">17 expeditors · sorted by progress change ↓</span>
-      </div>
-      <div style="margin-bottom:12px;font-size:12px;color:#6b6b68;display:flex;align-items:center;gap:5px;flex-wrap:wrap">
-        <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#E6F1FB;color:#0C447C;white-space:nowrap">Performing · Good quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FAEEDA;color:#633806;white-space:nowrap">Performing · Moderate</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Performing · Low quality</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EEEDFE;color:#3C3489;white-space:nowrap">Engaged · No progress</span> <span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span>
-        <span style="color:#c0c0bb;margin-left:2px">Quality = (Comments + Issues + Critical) ÷ Progress change</span>
-      </div>
-      
-      <div style="overflow-x:auto;border:1px solid #e0e0db;border-radius:8px">
-        <table style="width:100%;border-collapse:collapse;font-size:13.5px">
-          <thead>
-            <tr style="background:#f5f5f3;border-bottom:1px solid #e0e0db">
-              <th style="padding:10px 14px;text-align:left;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Expeditor</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Progress change</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68">Comments</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68">Issues</th>
-              <th style="padding:10px 14px;text-align:right;font-weight:500;font-size:12px;color:#6b6b68;white-space:nowrap">Critical updates</th>
-              <th style="padding:10px 14px;text-align:left;font-weight:500;font-size:12px;color:#6b6b68">Trend (7d)</th>
-            </tr>
-          </thead>
-          <tbody><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Bharat Chordiya</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FAEEDA;color:#633806;white-space:nowrap">Performing · Moderate</span></div>
+      <td class="mc"><div class="mv">16</div><div class="md du">+9</div></td>
+      <td class="mc"><div class="mv">11</div><div class="md dd">&#8722;4</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><span class="qv">69%</span></td>
+    </tr>
+    <tr data-name="muthu" data-progress="0">
+      <td>
+        <div class="en">Muthu</div>
+        <span class="badge dm">Inactive</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,2 13,2 26,2 39,2 52,2 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">87</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+87</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">7</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+7</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">2</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+2</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">5</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+5</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,26 39,26 52,26 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">mrutyunjaya</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Performing · Low quality</span></div>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;40</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="rajdeepsinh" data-progress="12">
+      <td>
+        <div class="en">rajdeepsinh</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,10 13,11 26,10 39,11 52,2 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">70</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−199</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−9</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,8.7 13,13.6 26,2 39,3.8 52,3.8 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Anil Mundhe</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span></div>
+      <td class="mc"><div class="mv">12</div><div class="md dd">&#8722;26</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="sushmita" data-progress="116">
+      <td>
+        <div class="en">Sushmita</div>
+        <span class="badge mq">Moderate</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,26 52,26 65,13 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">65</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+56</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">84</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+71</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">11</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+11</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,2 39,2 52,2 65,4 80,4" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="4" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Abhinav</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#E6F1FB;color:#0C447C;white-space:nowrap">Performing · Good quality</span></div>
+      <td class="mc"><div class="mv">116</div><div class="md du">+116</div></td>
+      <td class="mc"><div class="mv">15</div><div class="md du">+15</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">13%</span></td>
+    </tr>
+    <tr data-name="viral" data-progress="17">
+      <td>
+        <div class="en">Viral</div>
+        <span class="badge lq">Low quality</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,26 13,26 26,26 39,26 52,19 65,19 80,2" fill="none" stroke="#3B6D11" stroke-width="2"  stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">49</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+49</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">5</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+5</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">7</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+7</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,26 39,26 52,26 65,8.9 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Muthu</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Performing · Low quality</span></div>
+      <td class="mc"><div class="mv">17</div><div class="md du">+17</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="vishal" data-progress="0">
+      <td>
+        <div class="en">vishal</div>
+        <span class="badge dm">Inactive</span>
+        <svg viewBox="0 0 80 26" width="80" height="26" style="display:block;margin:4px auto 0"><polyline points="0,13 13,13 26,13 39,13 52,13 65,13 80,13" fill="none" stroke="#888780" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">40</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+21</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,14.6 13,26 26,2 39,2 52,2 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">rajdeepsinh</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Performing · Low quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">32</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+23</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,26 26,26 39,26 52,26 65,2 80,2.7" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2.7" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Gopi</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">24</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−31</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">44</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−25</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,17.7 26,9.4 39,13.1 52,12.2 65,14.9 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Mujakkirali</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">23</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+16</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">25</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+1</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,26 13,18.4 26,23.5 39,22.2 52,22.2 65,22.2 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Bapi</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">22</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+21</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">16</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+16</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,24.9 13,24.9 26,24.9 39,26 52,20.5 65,2 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Amit Kumar Goon</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#E6F1FB;color:#0C447C;white-space:nowrap">Performing · Good quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">20</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+6</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">4</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+4</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">4</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+4</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,10.8 13,26 26,12.1 39,2 52,4.5 65,4.5 80,3.3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="3.3" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">gourav</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#EAF3DE;color:#27500A;white-space:nowrap">Performing · High quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">10</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−14</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">7</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−11</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">1</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−7</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,5.4 26,17.4 39,17.4 52,17.4 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Drashti</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#FCEBEB;color:#791F1F;white-space:nowrap">Performing · Low quality</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">6</div>
-      <div style="margin-top:2px"><span style="color:#3B6D11;font-size:12px">+3</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,14 13,14 26,26 39,26 52,26 65,14 80,2" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="2" r="2.5" fill="#3B6D11"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Aman</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Bhargava</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−5</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#A32D2D;font-size:12px">−4</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><polyline points="0,2 13,26 26,26 39,26 52,26 65,26 80,26" fill="none" stroke="#A32D2D" stroke-width="1.5" stroke-linejoin="round"/><circle cx="80" cy="26" r="2.5" fill="#A32D2D"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Sushmita</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">Viral</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr><tr style="border-bottom:1px solid #e8e8e4">
-      <td style="padding:10px 14px;vertical-align:top">
-        <div style="font-weight:500;font-size:13.5px">vishal</div>
-        <div style="margin-top:5px"><span style="display:inline-block;padding:2px 8px;border-radius:20px;font-size:11.5px;font-weight:500;background:#F1EFE8;color:#444441;white-space:nowrap">Inactive</span></div>
-      </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;text-align:right;vertical-align:top;white-space:nowrap">
-      <div style="font-weight:600;font-size:14px">0</div>
-      <div style="margin-top:2px"><span style="color:#b0b0ad;font-size:12px">—</span></div>
-    </td>
-      <td style="padding:10px 14px;vertical-align:middle"><svg width="80" height="28" viewBox="0 0 80 28"><line x1="2" y1="14" x2="78" y2="14" stroke="#888780" stroke-width="1.5" stroke-dasharray="3,3"/></svg></td>
-    </tr></tbody>
-        </table>
-      </div>
-    </section>
-
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+function togglePopup(id){var p=document.getElementById(id);document.querySelectorAll('.qp').forEach(function(x){if(x.id!==id)x.classList.remove('open');});p.classList.toggle('open');}
+document.getElementById('qic').addEventListener('click',function(e){e.stopPropagation();togglePopup('qpc');});
+document.getElementById('qie').addEventListener('click',function(e){e.stopPropagation();togglePopup('qpe');});
+document.addEventListener('click',function(){document.querySelectorAll('.qp').forEach(function(p){p.classList.remove('open');});});
+function sortTable(id,mode){var tbody=document.getElementById(id);var rows=Array.prototype.slice.call(tbody.querySelectorAll('tr'));rows.sort(function(a,b){if(mode==='name') return a.dataset.name.localeCompare(b.dataset.name);return parseInt(b.dataset.progress)-parseInt(a.dataset.progress);});rows.forEach(function(r){tbody.appendChild(r);});}
+</script>
 </div>
 </body>
 </html>
