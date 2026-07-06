@@ -274,11 +274,31 @@ function sortTable(id,mode){
   rows.forEach(r=>tbody.appendChild(r));
 }
 
+// ---- resilient fetch: direct first, then CORS proxy fallbacks ----
+function fetchCSV(url){
+  const attempts=[
+    url,
+    'https://corsproxy.io/?url='+encodeURIComponent(url),
+    'https://api.allorigins.win/raw?url='+encodeURIComponent(url)
+  ];
+  let i=0;
+  function tryNext(){
+    if(i>=attempts.length) return Promise.reject(new Error('All fetch attempts failed'));
+    const u=attempts[i++];
+    return fetch(u).then(r=>{
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.text();
+    }).then(t=>{
+      // guard: proxies sometimes return an HTML error page
+      if(t.trim().toLowerCase().startsWith('<!doctype')||t.trim().toLowerCase().startsWith('<html')) throw new Error('Non-CSV response');
+      return t;
+    }).catch(()=>tryNext());
+  }
+  return tryNext();
+}
+
 // ---- load ----
-Promise.all([
-  fetch(CLIENT_URL).then(r=>r.text()),
-  fetch(EXP_URL).then(r=>r.text())
-]).then(([ctext,etext])=>{
+Promise.all([ fetchCSV(CLIENT_URL), fetchCSV(EXP_URL) ]).then(([ctext,etext])=>{
   const cData=toObjects(parseCSV(ctext)).filter(o=>col(o,C.cname).trim()!=='');
   const eData=toObjects(parseCSV(etext)).filter(o=>col(o,C.ename).trim()!=='');
   if(cData.length===0&&eData.length===0){
@@ -287,7 +307,7 @@ Promise.all([
   }
   render(cData,eData);
 }).catch(err=>{
-  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets.....<br>'+err+'</div>';
+  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets.<br>'+err+'<br><br>Check that both sheets are still published to the web (File &#8594; Share &#8594; Publish to web &#8594; CSV).</div>';
 });
 </script>
 </body>

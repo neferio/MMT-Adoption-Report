@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MMT Adoption Report — 29 Jun 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1a1a1a;}
+.page{max-width:960px;margin:0 auto;padding:32px 24px;}
+.rh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;}
+.rt{font-size:18px;font-weight:500;margin-bottom:4px;}
+.rs{font-size:13px;color:#6b6b68;}
+.wb{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:8px;padding:8px 12px;text-align:right;line-height:1.9;}
+.wb b{color:#1a1a1a;font-weight:500;}
+.ai-box{background:#f5f5f3;border-left:2px solid #534AB7;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:1.25rem;font-size:13px;line-height:1.6;}
+.ai-lbl{font-size:11px;font-weight:600;color:#534AB7;margin-bottom:6px;}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
+.sc{background:#f5f5f3;border-radius:8px;padding:12px 14px;border:0.5px solid #e0e0db;text-align:center;}
+.sl{font-size:12px;color:#6b6b68;margin-bottom:4px;}
+.sv{font-size:20px;font-weight:500;}
+.ss{font-size:11px;color:#6b6b68;border-top:0.5px solid #e0e0db;padding-top:5px;margin-top:6px;}
+.sec-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;margin-top:1.75rem;}
+.sec-l{display:flex;align-items:center;gap:8px;}
+.st{font-size:15px;font-weight:500;}
+.sc2{font-size:12px;color:#6b6b68;background:#f5f5f3;border-radius:20px;padding:2px 10px;border:0.5px solid #e0e0db;}
+.srt{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6b68;}
+.srt select{font-size:12px;color:#1a1a1a;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:4px 8px;cursor:pointer;outline:none;}
+.wnote{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:6px 12px;margin-bottom:10px;}
+.pos{color:#3B6D11;font-weight:600;}
+.neg{color:#A32D2D;font-weight:600;}
+.lgrow{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
+.lglbl{font-size:11px;color:#6b6b68;}
+.qw{position:relative;display:inline-flex;align-items:center;}
+.qi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#534AB7;color:#fff;font-size:11px;font-weight:700;cursor:pointer;user-select:none;}
+.qp{display:none;position:absolute;top:24px;left:0;z-index:200;background:#fff;border:1px solid #e0e0db;border-radius:10px;padding:12px 14px;min-width:270px;box-shadow:0 4px 16px rgba(0,0,0,.12);}
+.qp.open{display:block;}
+.qpt{font-size:12px;font-weight:600;margin-bottom:8px;}
+.qpr{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.qpct{font-size:11px;color:#6b6b68;min-width:80px;}
+.qpd{font-size:11px;color:#6b6b68;margin-top:8px;padding-top:8px;border-top:0.5px solid #e0e0db;line-height:1.5;}
+.badge{display:inline-flex;font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
+.hq{background:#EAF3DE;color:#27500A;}
+.gq{background:#E6F1FB;color:#0C447C;}
+.mq{background:#FAEEDA;color:#633806;}
+.lq{background:#FCEBEB;color:#791F1F;}
+.sj{background:#EEEDFE;color:#3C3489;}
+.dm{background:#F1EFE8;color:#444441;}
+table{width:100%;border-collapse:collapse;table-layout:fixed;}
+thead tr{border-bottom:0.5px solid #e0e0db;}
+th{font-size:11px;font-weight:500;color:#6b6b68;text-align:left;padding:6px 8px;text-transform:uppercase;letter-spacing:.04em;}
+th.rc{text-align:center;}
+tbody tr{border-bottom:0.5px solid #e0e0db;}
+tbody tr:last-child{border-bottom:none;}
+td{padding:9px 8px;font-size:13px;vertical-align:middle;}
+.en{font-weight:500;font-size:13px;margin-bottom:4px;}
+.mc{text-align:center;}
+.mv{font-size:13px;font-weight:500;}
+.md{font-size:11px;margin-top:2px;}
+.du{color:#3B6D11;}
+.dd{color:#A32D2D;}
+.df{color:#6b6b68;}
+.qv{font-size:13px;font-weight:500;}
+.qna{font-size:13px;color:#6b6b68;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="rh">
+  <div><p class="rt">MMT adoption report</p><p class="rs">Generated on 29 Jun 2026</p></div>
+  <div class="wb">
+    <div>Current window &nbsp;<b>23 Jun – 29 Jun 2026</b></div>
+    <div>Previous window <b>16 Jun – 22 Jun 2026</b></div>
+  </div>
+</div>
+
+<div class="ai-box">
+  <div class="ai-lbl">&#10022; AI summary</div>
+  CtrlS dominates this window with 330 progress updates — a massive 299-unit jump from the previous window, making it the standout client by a wide margin. Danieli Corus and SRF also show strong growth. Primetals MS dropped sharply (144 → 5), and VALMET fell to zero — both need follow-up. On the expeditor side, gourav leads with 93 updates (new activation), followed closely by rajdeepsinh (+81) and Bharat Chordiya (+83). Viral and mrutyunjaya have gone inactive this window.
+</div>
+
+<div class="sg">
+  <div class="sc"><div class="sl">Total updates</div><div class="sv">790</div><div class="ss">vs 399 in previous window</div></div>
+  <div class="sc"><div class="sl">Progress changes</div><div class="sv">606</div><div class="ss">vs 302 in previous window</div></div>
+  <div class="sc"><div class="sl">Active clients</div><div class="sv">8 / 11</div><div class="ss">Progress change &gt; 0 in current window</div></div>
+  <div class="sc"><div class="sl">Active expeditors</div><div class="sv">13 / 17</div><div class="ss">Progress change &gt; 0 in current window</div></div>
+</div>
+
+<!-- CLIENT TABLE -->
+<div class="sec-top">
+  <div class="sec-l"><span class="st">Client activity</span><span class="sc2">11 clients</span></div>
+  <div class="srt">Sort by <select onchange="sortTable('cb',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div>
+</div>
+<div class="wnote"><span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current window vs previous window &nbsp;&#183;&nbsp; Previous: <strong>16 Jun – 22 Jun 2026</strong> &nbsp;&#183;&nbsp; Current: <strong>23 Jun – 29 Jun 2026</strong></div>
+<div class="lgrow">
+  <span class="lglbl">Quality badge</span>
+  <div class="qw">
+    <span class="qi" id="qic">?</span>
+    <div class="qp" id="qpc">
+      <div class="qpt">How quality is calculated</div>
+      <div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>
+      <div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 &#8211; 49%</span></div>
+      <div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 &#8211; 19%</span></div>
+      <div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>
+      <div class="qpr"><span class="badge sj">Subjective only</span><span class="qpct">No progress</span></div>
+      <div class="qpr"><span class="badge dm">Dormant</span><span class="qpct">All zero</span></div>
+      <div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change. Measures how much context accompanies each progress update.</div>
+    </div>
+  </div>
+  <span class="badge hq">High quality</span>
+  <span class="badge gq">Good quality</span>
+  <span class="badge mq">Moderate</span>
+  <span class="badge lq">Low quality</span>
+  <span class="badge sj">Subjective only</span>
+  <span class="badge dm">Dormant</span>
+</div>
+<table>
+  <thead><tr>
+    <th style="width:22%">Client</th>
+    <th class="rc" style="width:14%">Progress change</th>
+    <th class="rc" style="width:11%">Comments</th>
+    <th class="rc" style="width:10%">Issues</th>
+    <th class="rc" style="width:13%">Critical updates</th>
+    <th class="rc" style="width:10%">Quality %</th>
+  </tr></thead>
+  <tbody id="cb">
+    <tr data-name="ctrls" data-progress="330">
+      <td><div class="en">CtrlS</div><span class="badge mq">Moderate</span></td>
+      <td class="mc"><div class="mv">330</div><div class="md du">+299</div></td>
+      <td class="mc"><div class="mv">39</div><div class="md du">+38</div></td>
+      <td class="mc"><div class="mv">3</div><div class="md du">+2</div></td>
+      <td class="mc"><div class="mv">16</div><div class="md du">+13</div></td>
+      <td class="mc"><span class="qv">18%</span></td>
+    </tr>
+    <tr data-name="danieli corus" data-progress="113">
+      <td><div class="en">Danieli Corus</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">113</div><div class="md du">+79</div></td>
+      <td class="mc"><div class="mv">17</div><div class="md du">+16</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">5</div><div class="md du">+5</div></td>
+      <td class="mc"><span class="qv">20%</span></td>
+    </tr>
+    <tr data-name="jnk" data-progress="42">
+      <td><div class="en">JNK</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">42</div><div class="md du">+42</div></td>
+      <td class="mc"><div class="mv">9</div><div class="md du">+9</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">20</div><div class="md du">+20</div></td>
+      <td class="mc"><span class="qv">69%</span></td>
+    </tr>
+    <tr data-name="primetals ms" data-progress="5">
+      <td><div class="en">Primetals MS</div><span class="badge lq">Low quality</span></td>
+      <td class="mc"><div class="mv">5</div><div class="md dd">&#8722;139</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;15</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="sopan" data-progress="41">
+      <td><div class="en">SOPAN</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">41</div><div class="md dd">&#8722;6</div></td>
+      <td class="mc"><div class="mv">41</div><div class="md dd">&#8722;18</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">105%</span></td>
+    </tr>
+    <tr data-name="srf" data-progress="36">
+      <td><div class="en">SRF</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">36</div><div class="md du">+15</div></td>
+      <td class="mc"><div class="mv">13</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">36%</span></td>
+    </tr>
+    <tr data-name="thermax" data-progress="0">
+      <td><div class="en">Thermax</div><span class="badge dm">Dormant</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="thermax enviro" data-progress="2">
+      <td><div class="en">Thermax Enviro</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">2</div><div class="md du">+2</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">100%</span></td>
+    </tr>
+    <tr data-name="valmet" data-progress="0">
+      <td><div class="en">VALMET</div><span class="badge dm">Dormant</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;7</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="zeeco" data-progress="0">
+      <td><div class="en">Zeeco</div><span class="badge dm">Dormant</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="zetwerk" data-progress="37">
+      <td><div class="en">Zetwerk</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">37</div><div class="md du">+19</div></td>
+      <td class="mc"><div class="mv">14</div><div class="md du">+8</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><span class="qv">43%</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- EXPEDITOR TABLE -->
+<div class="sec-top" style="margin-top:2rem;">
+  <div class="sec-l"><span class="st">Expeditor activity</span><span class="sc2">17 expeditors</span></div>
+  <div class="srt">Sort by <select onchange="sortTable('eb',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div>
+</div>
+<div class="wnote"><span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current window vs previous window &nbsp;&#183;&nbsp; Previous: <strong>16 Jun – 22 Jun 2026</strong> &nbsp;&#183;&nbsp; Current: <strong>23 Jun – 29 Jun 2026</strong></div>
+<div class="lgrow">
+  <span class="lglbl">Quality badge</span>
+  <div class="qw">
+    <span class="qi" id="qie">?</span>
+    <div class="qp" id="qpe">
+      <div class="qpt">How quality is calculated</div>
+      <div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>
+      <div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 &#8211; 49%</span></div>
+      <div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 &#8211; 19%</span></div>
+      <div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>
+      <div class="qpr"><span class="badge sj">Engaged &#183; No progress</span><span class="qpct">No progress</span></div>
+      <div class="qpr"><span class="badge dm">Inactive</span><span class="qpct">All zero</span></div>
+      <div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change. Measures how much context accompanies each progress update.</div>
+    </div>
+  </div>
+  <span class="badge hq">High quality</span>
+  <span class="badge gq">Good quality</span>
+  <span class="badge mq">Moderate</span>
+  <span class="badge lq">Low quality</span>
+  <span class="badge sj">Engaged &#183; No progress</span>
+  <span class="badge dm">Inactive</span>
+</div>
+<table>
+  <thead><tr>
+    <th style="width:22%">Expeditor</th>
+    <th class="rc" style="width:14%">Progress change</th>
+    <th class="rc" style="width:11%">Comments</th>
+    <th class="rc" style="width:10%">Issues</th>
+    <th class="rc" style="width:13%">Critical updates</th>
+    <th class="rc" style="width:10%">Quality %</th>
+  </tr></thead>
+  <tbody id="eb">
+    <tr data-name="abhinav" data-progress="44">
+      <td><div class="en">Abhinav</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">44</div><div class="md du">+44</div></td>
+      <td class="mc"><div class="mv">5</div><div class="md du">+4</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;1</div></td>
+      <td class="mc"><div class="mv">10</div><div class="md du">+7</div></td>
+      <td class="mc"><span class="qv">34%</span></td>
+    </tr>
+    <tr data-name="aman" data-progress="0">
+      <td><div class="en">Aman</div><span class="badge dm">Inactive</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="amit kumar goon" data-progress="32">
+      <td><div class="en">Amit Kumar Goon</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">32</div><div class="md du">+14</div></td>
+      <td class="mc"><div class="mv">7</div><div class="md du">+5</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md dd">&#8722;2</div></td>
+      <td class="mc"><span class="qv">25%</span></td>
+    </tr>
+    <tr data-name="anil mundhe" data-progress="33">
+      <td><div class="en">Anil Mundhe</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">33</div><div class="md du">+18</div></td>
+      <td class="mc"><div class="mv">13</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">39%</span></td>
+    </tr>
+    <tr data-name="bapi" data-progress="19">
+      <td><div class="en">Bapi</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">19</div><div class="md du">+19</div></td>
+      <td class="mc"><div class="mv">6</div><div class="md du">+6</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">37%</span></td>
+    </tr>
+    <tr data-name="bharat chordiya" data-progress="104">
+      <td><div class="en">Bharat Chordiya</div><span class="badge lq">Low quality</span></td>
+      <td class="mc"><div class="mv">104</div><div class="md du">+83</div></td>
+      <td class="mc"><div class="mv">5</div><div class="md du">+5</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">3</div><div class="md du">+2</div></td>
+      <td class="mc"><span class="qv">8%</span></td>
+    </tr>
+    <tr data-name="bhargava" data-progress="16">
+      <td><div class="en">Bhargava</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">16</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">7</div><div class="md du">+7</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">44%</span></td>
+    </tr>
+    <tr data-name="drashti" data-progress="10">
+      <td><div class="en">Drashti</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">10</div><div class="md du">+10</div></td>
+      <td class="mc"><div class="mv">10</div><div class="md du">+10</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">20</div><div class="md du">+20</div></td>
+      <td class="mc"><span class="qv">310%</span></td>
+    </tr>
+    <tr data-name="gopi" data-progress="41">
+      <td><div class="en">Gopi</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">41</div><div class="md dd">&#8722;6</div></td>
+      <td class="mc"><div class="mv">41</div><div class="md dd">&#8722;18</div></td>
+      <td class="mc"><div class="mv">2</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">105%</span></td>
+    </tr>
+    <tr data-name="gourav" data-progress="93">
+      <td><div class="en">gourav</div><span class="badge gq">Good quality</span></td>
+      <td class="mc"><div class="mv">93</div><div class="md du">+93</div></td>
+      <td class="mc"><div class="mv">30</div><div class="md du">+30</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">7</div><div class="md du">+7</div></td>
+      <td class="mc"><span class="qv">41%</span></td>
+    </tr>
+    <tr data-name="mrutyunjaya" data-progress="0">
+      <td><div class="en">mrutyunjaya</div><span class="badge dm">Inactive</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;7</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="mujakkirali" data-progress="5">
+      <td><div class="en">Mujakkirali</div><span class="badge hq">High quality</span></td>
+      <td class="mc"><div class="mv">5</div><div class="md du">+5</div></td>
+      <td class="mc"><div class="mv">7</div><div class="md du">+3</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><span class="qv">160%</span></td>
+    </tr>
+    <tr data-name="muthu" data-progress="63">
+      <td><div class="en">Muthu</div><span class="badge lq">Low quality</span></td>
+      <td class="mc"><div class="mv">63</div><div class="md du">+29</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><span class="qv">3%</span></td>
+    </tr>
+    <tr data-name="rajdeepsinh" data-progress="93">
+      <td><div class="en">rajdeepsinh</div><span class="badge lq">Low quality</span></td>
+      <td class="mc"><div class="mv">93</div><div class="md du">+81</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">1</div><div class="md du">+1</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">2%</span></td>
+    </tr>
+    <tr data-name="sushmita" data-progress="5">
+      <td><div class="en">Sushmita</div><span class="badge lq">Low quality</span></td>
+      <td class="mc"><div class="mv">5</div><div class="md dd">&#8722;111</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;15</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qv">0%</span></td>
+    </tr>
+    <tr data-name="viral" data-progress="0">
+      <td><div class="en">Viral</div><span class="badge dm">Inactive</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md dd">&#8722;17</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+    <tr data-name="vishal" data-progress="0">
+      <td><div class="en">vishal</div><span class="badge dm">Inactive</span></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><div class="mv">0</div><div class="md df">&#8212;</div></td>
+      <td class="mc"><span class="qna">&#8212;</span></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<script>
+function togglePopup(id){
+  var p=document.getElementById(id);
+  document.querySelectorAll('.qp').forEach(function(x){if(x.id!==id)x.classList.remove('open');});
+  p.classList.toggle('open');
+}
+document.getElementById('qic').addEventListener('click',function(e){e.stopPropagation();togglePopup('qpc');});
+document.getElementById('qie').addEventListener('click',function(e){e.stopPropagation();togglePopup('qpe');});
+document.addEventListener('click',function(){document.querySelectorAll('.qp').forEach(function(p){p.classList.remove('open');});});
+function sortTable(id,mode){
+  var tbody=document.getElementById(id);
+  var rows=Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  rows.sort(function(a,b){
+    if(mode==='name') return a.dataset.name.localeCompare(b.dataset.name);
+    return parseInt(b.dataset.progress)-parseInt(a.dataset.progress);
+  });
+  rows.forEach(function(r){tbody.appendChild(r);});
+}
+</script>
+</body>
+</html>
