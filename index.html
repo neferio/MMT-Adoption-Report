@@ -307,7 +307,7 @@ Promise.all([ fetchCSV(CLIENT_URL), fetchCSV(EXP_URL) ]).then(([ctext,etext])=>{
   }
   render(cData,eData);
 }).catch(err=>{
-  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets.<br>'+err+'<br><br>Check that both sheets are still published to the web (File &#8594; Share &#8594; Publish to web &#8594; CSV).</div>';
+  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets...<br>'+err+'<br><br>Check that both sheets are still published to the web (File &#8594; Share &#8594; Publish to web &#8594; CSV).</div>';
 });
 </script>
 </body>
