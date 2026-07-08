@@ -3,312 +3,704 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MMT Adoption Report</title>
+<title>MMT Adoption Command Center</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1a1a1a;}
-.page{max-width:960px;margin:0 auto;padding:32px 24px;}
-.rh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;flex-wrap:wrap;gap:12px;}
-.rt{font-size:18px;font-weight:500;margin-bottom:4px;}
-.rs{font-size:13px;color:#6b6b68;}
-.wb{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:8px;padding:8px 12px;text-align:right;line-height:1.9;}
-.wb b{color:#1a1a1a;font-weight:500;}
-.ai-box{background:#f5f5f3;border-left:2px solid #534AB7;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:1.25rem;font-size:13px;line-height:1.6;}
-.ai-lbl{font-size:11px;font-weight:600;color:#534AB7;margin-bottom:6px;}
-.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
-.sc{background:#f5f5f3;border-radius:8px;padding:12px 14px;border:0.5px solid #e0e0db;text-align:center;}
-.sl{font-size:12px;color:#6b6b68;margin-bottom:4px;}
-.sv{font-size:20px;font-weight:500;}
-.ss{font-size:11px;color:#6b6b68;border-top:0.5px solid #e0e0db;padding-top:5px;margin-top:6px;}
-.sec-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;margin-top:1.75rem;flex-wrap:wrap;gap:8px;}
-.sec-l{display:flex;align-items:center;gap:8px;}
-.st{font-size:15px;font-weight:500;}
-.sc2{font-size:12px;color:#6b6b68;background:#f5f5f3;border-radius:20px;padding:2px 10px;border:0.5px solid #e0e0db;}
-.srt{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6b68;}
-.srt select{font-size:12px;color:#1a1a1a;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:4px 8px;cursor:pointer;outline:none;}
-.wnote{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:6px 12px;margin-bottom:10px;}
-.pos{color:#3B6D11;font-weight:600;}
-.neg{color:#A32D2D;font-weight:600;}
-.lgrow{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
-.lglbl{font-size:11px;color:#6b6b68;}
-.qw{position:relative;display:inline-flex;align-items:center;}
-.qi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#534AB7;color:#fff;font-size:11px;font-weight:700;cursor:pointer;user-select:none;}
-.qp{display:none;position:absolute;top:24px;left:0;z-index:200;background:#fff;border:1px solid #e0e0db;border-radius:10px;padding:12px 14px;min-width:270px;box-shadow:0 4px 16px rgba(0,0,0,.12);}
-.qp.open{display:block;}
-.qpt{font-size:12px;font-weight:600;margin-bottom:8px;}
-.qpr{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.qpct{font-size:11px;color:#6b6b68;min-width:80px;}
-.qpd{font-size:11px;color:#6b6b68;margin-top:8px;padding-top:8px;border-top:0.5px solid #e0e0db;line-height:1.5;}
-.badge{display:inline-flex;font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
-.hq{background:#EAF3DE;color:#27500A;}
-.gq{background:#E6F1FB;color:#0C447C;}
-.mq{background:#FAEEDA;color:#633806;}
-.lq{background:#FCEBEB;color:#791F1F;}
-.sj{background:#EEEDFE;color:#3C3489;}
-.dm{background:#F1EFE8;color:#444441;}
-table{width:100%;border-collapse:collapse;table-layout:fixed;}
-thead tr{border-bottom:0.5px solid #e0e0db;}
-th{font-size:11px;font-weight:500;color:#6b6b68;text-align:left;padding:6px 8px;text-transform:uppercase;letter-spacing:.04em;}
-th.rc{text-align:center;}
-tbody tr{border-bottom:0.5px solid #e0e0db;}
-tbody tr:last-child{border-bottom:none;}
-td{padding:9px 8px;font-size:13px;vertical-align:middle;}
-.en{font-weight:500;font-size:13px;margin-bottom:4px;}
-.mc{text-align:center;}
-.mv{font-size:13px;font-weight:500;}
-.md{font-size:11px;margin-top:2px;}
-.du{color:#3B6D11;}
-.dd{color:#A32D2D;}
-.df{color:#6b6b68;}
-.qv{font-size:13px;font-weight:500;}
-.qna{font-size:13px;color:#6b6b68;}
-.loading{text-align:center;padding:80px 20px;color:#6b6b68;font-size:14px;}
-.err{text-align:center;padding:40px 20px;color:#791F1F;font-size:13px;background:#FCEBEB;border-radius:8px;margin:20px 0;}
+:root{
+  --ink:#1a1a1a; --mut:#6b6b68; --bg2:#f5f5f3; --bd:#e0e0db;
+  --green:#3B6D11; --blue:#0C447C; --amber:#BA7517; --red:#A32D2D; --purple:#534AB7;
+  --green-bg:#EAF3DE; --blue-bg:#E6F1FB; --amber-bg:#FAEEDA; --red-bg:#FCEBEB; --gray-bg:#F1EFE8; --purple-bg:#EEEDFE;
+}
+body{font-family:system-ui,-apple-system,sans-serif;background:#fafaf8;color:var(--ink);}
+.page{max-width:1100px;margin:0 auto;padding:24px 20px 60px;}
+/* header */
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:70;background:#fafaf8;padding:12px 0 10px;margin-bottom:8px;border-bottom:1px solid var(--bd);}
+.h-title{font-size:19px;font-weight:650;letter-spacing:-.01em;}
+.h-sub{font-size:12.5px;color:var(--mut);margin-top:3px;}
+.h-right{display:flex;align-items:center;gap:8px;}
+.pill{font-size:11.5px;color:var(--mut);background:#fff;border:1px solid var(--bd);border-radius:20px;padding:5px 12px;}
+.pill b{color:var(--ink);font-weight:600;}
+.refresh{font-size:11.5px;color:var(--purple);background:var(--purple-bg);border:none;border-radius:20px;padding:6px 13px;cursor:pointer;font-weight:600;}
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px;}
+.kpi{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px 15px;}
+.k-lbl{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.k-val{font-size:24px;font-weight:650;line-height:1;letter-spacing:-.02em;}
+.k-val small{font-size:13px;font-weight:500;color:var(--mut);}
+.k-sub{font-size:11.5px;color:var(--mut);margin-top:6px;}
+.k-chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;border-radius:12px;padding:2px 8px;margin-top:6px;}
+.up{background:var(--green-bg);color:var(--green);}
+.down{background:var(--red-bg);color:var(--red);}
+.flat{background:var(--gray-bg);color:var(--mut);}
+/* insights */
+.ins-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+@media(max-width:760px){.ins-wrap{grid-template-columns:1fr;}}
+.ins-col{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:14px 15px;}
+.ins-h{font-size:12px;font-weight:650;margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+.ins-h.warn{color:var(--red);}
+.ins-h.good{color:var(--green);}
+.ins{display:flex;gap:8px;align-items:flex-start;padding:7px 9px;border-radius:8px;cursor:pointer;font-size:12.5px;line-height:1.45;}
+.ins:hover{background:var(--bg2);}
+.ins .tag{flex-shrink:0;font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;margin-top:1px;text-transform:uppercase;letter-spacing:.03em;}
+.tag.crit{background:var(--red-bg);color:var(--red);}
+.tag.watch{background:var(--amber-bg);color:var(--amber);}
+.tag.win{background:var(--green-bg);color:var(--green);}
+.ins b{font-weight:600;}
+.ins-empty{font-size:12px;color:var(--mut);padding:6px 9px;}
+/* control bar */
+.ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;position:sticky;top:0;background:#fafaf8;padding:10px 0;z-index:50;border-bottom:1px solid var(--bd);}
+.seg{display:inline-flex;background:#fff;border:1px solid var(--bd);border-radius:10px;overflow:hidden;}
+.seg button{font-size:12.5px;font-weight:600;padding:7px 16px;border:none;background:none;color:var(--mut);cursor:pointer;}
+.seg button.on{background:var(--purple);color:#fff;}
+.search{flex:1;min-width:140px;max-width:260px;font-size:12.5px;padding:7px 12px;border:1px solid var(--bd);border-radius:10px;outline:none;background:#fff;}
+.chips{display:flex;gap:6px;flex-wrap:wrap;}
+.chip{font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:16px;border:1px solid var(--bd);background:#fff;color:var(--mut);cursor:pointer;}
+.chip.on{border-color:var(--purple);background:var(--purple-bg);color:var(--purple);}
+.sortsel{font-size:12px;padding:6px 9px;border:1px solid var(--bd);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;outline:none;}
+/* cards */
+.grid{display:flex;flex-direction:column;gap:10px;}
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;overflow:visible;}
+.c-head{display:grid;grid-template-columns:minmax(210px,1.5fr) repeat(var(--cols,4),minmax(88px,1fr));gap:8px;align-items:center;cursor:pointer;}
+.c-id{display:flex;align-items:center;gap:12px;min-width:0;}
+.hstats{display:contents;}
+.hstat{text-align:center;padding:0 6px;border-left:1px solid #f0efe9;}
+.hs-lbl{font-size:9.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;white-space:nowrap;}
+.hs-val{font-size:15px;font-weight:650;}
+.hs-sub{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.35;}
+.donut-col{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
+.donut-cap{font-size:8.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+@media(max-width:900px){
+.c-head{display:flex;flex-wrap:wrap;gap:12px;}
+.hstats{display:flex;flex-wrap:wrap;gap:4px;width:100%;border-top:1px solid #f0efe9;padding-top:9px;}
+.hstat{border-left:none;text-align:left;padding:0 14px 0 0;min-width:90px;}
+}
+.c-head:hover{background:#fdfdfc;}
+.c-info{flex:1;min-width:0;}
+.c-name{font-size:14.5px;font-weight:650;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.c-meta{font-size:11.5px;color:var(--mut);margin-top:3px;}
+.c-badges{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;}
+.badge{display:inline-flex;font-size:10.5px;padding:2.5px 8px;border-radius:12px;white-space:nowrap;font-weight:600;}
+.b-hq{background:var(--green-bg);color:var(--green);}
+.b-gq{background:var(--blue-bg);color:var(--blue);}
+.b-mq{background:var(--amber-bg);color:var(--amber);}
+.b-lq{background:var(--red-bg);color:var(--red);}
+.b-dm{background:var(--gray-bg);color:#444441;}
+.b-sj{background:var(--purple-bg);color:var(--purple);}
+.donut-wrap{position:relative;width:62px;height:62px;flex-shrink:0;}
+.donut-txt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;}
+.chev{color:var(--mut);font-size:11px;transition:transform .15s;flex-shrink:0;}
+.card.open .chev{transform:rotate(180deg);}
+.c-body{display:none;border-top:1px solid var(--bd);padding:13px 15px;background:#fdfdfc;}
+.card.open .c-body{display:block;}
+.stat-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.stat{flex:1;min-width:90px;background:#fff;border:1px solid var(--bd);border-radius:9px;padding:8px 10px;text-align:center;}
+.s-lbl{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;}
+.s-val{font-size:15px;font-weight:650;}
+.s-sub{font-size:10.5px;color:var(--mut);margin-top:2px;}
+.sub-h{font-size:11px;font-weight:650;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 7px;}
+.catgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+@media(max-width:500px){.catgrid{grid-template-columns:repeat(3,1fr);}}
+.catcell{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:7px 4px;text-align:center;}
+.catlbl{font-size:9px;color:var(--mut);text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px;}
+.catval{font-size:13.5px;font-weight:650;}
+/* mini rows inside expanded card */
+.mini{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0efe9;font-size:13px;}
+.mini:last-child{border-bottom:none;}
+.m-name{flex:1;min-width:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.m-nums{font-size:11.5px;color:var(--mut);white-space:nowrap;}
+.m-bar{width:100px;height:6px;background:#eceae4;border-radius:4px;overflow:hidden;flex-shrink:0;}
+.m-bar>div{height:100%;border-radius:4px;}
+.m-pct{width:44px;text-align:right;font-weight:650;font-size:12.5px;flex-shrink:0;}
+.srcbar{display:flex;height:6px;width:64px;border-radius:4px;overflow:hidden;background:#eceae4;flex-shrink:0;}
+.src-web{background:var(--purple);}
+.src-app{background:var(--green);}
+.src-both{background:var(--amber);}
+.srckey{display:flex;gap:10px;font-size:10.5px;color:var(--mut);margin-top:6px;}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:3px;}
+.empty{font-size:12px;color:var(--mut);padding:8px 0;}
+.nores{text-align:center;color:var(--mut);padding:40px 0;font-size:13px;grid-column:1/-1;}
+.loading{text-align:center;padding:80px 20px;color:var(--mut);font-size:14px;}
+.err{text-align:center;padding:40px 20px;color:var(--red);font-size:13px;background:var(--red-bg);border-radius:12px;margin:20px 0;}
+.foot{font-size:11px;color:var(--mut);margin-top:26px;text-align:center;line-height:1.7;}
+
+/* KPI info popovers */
+.kpi{position:relative;}
+.k-lbl{display:flex;align-items:center;gap:5px;}
+.ki{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background:var(--purple-bg);color:var(--purple);font-size:9px;font-weight:700;cursor:pointer;user-select:none;flex-shrink:0;}
+.kpop{display:none;position:absolute;top:34px;left:10px;right:10px;z-index:300;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:11px 13px;box-shadow:0 4px 16px rgba(0,0,0,.12);font-size:11.5px;line-height:1.55;color:var(--ink);font-weight:400;text-transform:none;letter-spacing:0;}
+.kpop.open{display:block;}
+/* explainer band */
+.expl{background:#fff;border:1px solid var(--bd);border-radius:12px;margin-bottom:18px;overflow:hidden;}
+.expl-h{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;cursor:pointer;font-size:12.5px;font-weight:650;color:var(--purple);}
+.expl-h:hover{background:#fdfdfc;}
+.expl-body{display:none;border-top:1px solid var(--bd);padding:14px 15px;}
+.expl.open .expl-body{display:block;}
+.expl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+.expl-card{background:var(--bg2);border-radius:10px;padding:12px 13px;}
+.expl-t{font-size:11.5px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.expl-d{font-size:11.5px;color:#3d3d3a;line-height:1.6;}
+.expl-d b{font-weight:650;color:var(--ink);}
+/* insights scroll + info */
+.ins-body{max-height:232px;overflow-y:auto;}
+.ins-h{position:relative;}
+
+/* modal */
+.modal-ov{position:fixed;inset:0;background:rgba(24,24,22,.45);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:22px 14px;overflow-y:auto;}
+.modal-ov.open{display:flex;}
+.modal{background:#fff;border-radius:16px;max-width:1020px;width:100%;box-shadow:0 12px 48px rgba(0,0,0,.22);animation:mpop .14s ease-out;}
+@keyframes mpop{from{transform:translateY(8px);opacity:.6;}to{transform:none;opacity:1;}}
+.m-head{display:flex;align-items:center;gap:16px;padding:22px 28px 18px;border-bottom:1px solid var(--bd);}
+.m-title{font-size:17px;font-weight:700;letter-spacing:-.01em;}
+.m-close{margin-left:auto;width:30px;height:30px;border-radius:8px;border:1px solid var(--bd);background:#fff;color:var(--mut);font-size:15px;cursor:pointer;flex-shrink:0;}
+.m-close:hover{background:var(--bg2);}
+.m-body{padding:20px 28px 26px;}
+.m-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:16px;}
+.m-stat{background:var(--bg2);border-radius:10px;padding:10px 12px;text-align:center;}
+.m-slbl{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+.m-sval{font-size:17px;font-weight:700;}
+.m-ssub{font-size:10.5px;color:var(--mut);margin-top:2px;}
+.m-formula{font-size:11.5px;color:var(--mut);background:var(--purple-bg);border-radius:8px;padding:8px 12px;margin-bottom:14px;line-height:1.5;}
+.m-formula b{color:var(--purple);}
+.wkrow{display:flex;gap:9px;margin-bottom:16px;flex-wrap:wrap;}
+.wk{flex:1;min-width:100px;background:#fff;border:1px solid var(--bd);border-radius:10px;padding:9px 11px;text-align:center;}
+/* strips taller, no accordion */
+.c-head{padding:17px 18px;}
+
+/* entity sub-cards inside modal */
+.xp{border:1px solid var(--bd);border-radius:12px;padding:13px 16px;margin-bottom:10px;background:#fff;}
+.xp-top{display:flex;justify-content:space-between;align-items:center;gap:14px;cursor:pointer;}
+.xp-top:hover .xp-name{color:var(--purple);}
+.xp-upd{font-size:12.5px;color:var(--ink);margin-top:4px;}
+.xp-upd b{font-weight:700;}
+.xp-right{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.xp-det{display:none;margin-top:12px;border-top:1px solid #f0efe9;padding-top:12px;}
+.xp.open .xp-det{display:block;}
+.xp .chev{transition:transform .15s;}
+.xp.open .chev{transform:rotate(180deg);}
+.xp-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.xp-name{font-size:15px;font-weight:700;letter-spacing:-.01em;}
+.xp-adopt{font-size:13px;font-weight:700;}
+.xp-adopt small{font-size:10.5px;font-weight:500;color:var(--mut);margin-left:4px;}
+.xp-line{display:flex;align-items:center;gap:12px;font-size:12.5px;margin-bottom:9px;flex-wrap:wrap;}
+.xp-line .m-bar{width:150px;}
+.xp-win{font-size:12.5px;background:var(--bg2);border-radius:8px;padding:8px 12px;margin-bottom:10px;line-height:1.5;}
+.xp-win b{font-size:14px;}
+.xp-cats{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+@media(max-width:640px){.xp-cats{grid-template-columns:repeat(3,1fr);}}
+.xp-cats .catcell{padding:8px 4px;}
+.xp-sec{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;font-weight:600;}
+
+/* window-metric visual language: amber tint = current-window data, NOT MTD */
+.hstat.win{background:#FBF5EA;border:1px solid #EFE3C8;border-radius:10px;padding:7px 5px 8px;position:relative;border-left:1px solid #EFE3C8 !important;}
+.win-tag{display:inline-flex;align-items:center;gap:3px;font-size:8px;font-weight:800;color:#8a6a1f;letter-spacing:.07em;background:#F3E7C9;border-radius:8px;padding:2px 7px;margin-bottom:3px;text-transform:uppercase;}
+.win-tag .ki{width:12px;height:12px;font-size:8px;background:#8a6a1f;}
+.win-panel{background:#FBF5EA;border:1px solid #EFE3C8;border-radius:10px;padding:12px 14px;margin-bottom:14px;position:relative;}
+.win-panel .wk{background:#fff;border-color:#EFE3C8;}
+.win-panel .xp-sec,.win-panel .sub-h{margin-top:0;}
+.xp-winline{background:#FBF5EA;border:1px solid #EFE3C8;border-radius:8px;padding:6px 10px;margin-top:7px;font-size:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:relative;}
 </style>
 </head>
 <body>
-<div class="page" id="root">
-  <div class="loading">Loading latest adoption data…</div>
-</div>
-
+<div class="page" id="app"><div class="loading">Loading adoption data from Google Sheets&#8230;</div></div>
 <script>
-const CLIENT_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFqCmxwary53PMGZdDmkSqa44z6eZqX47TPL0hDr3IKxDKmdUaGKIguvJOZF5ozXhIDT3JjK9-kvy-/pub?gid=0&single=true&output=csv";
-const EXP_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTFOgugjEjEtm1tlHvnmHerS0b_6ySdWUXHsk8bUzHWO31YPUjmdu7XbPHMzHnSLHxWq2iR17b5ammh/pub?gid=0&single=true&output=csv";
-
-// ---- CSV parser (handles quoted fields) ----
-function parseCSV(text){
-  const rows=[]; let row=[], field='', inQ=false;
-  for(let i=0;i<text.length;i++){
-    const c=text[i];
-    if(inQ){
-      if(c==='"'){ if(text[i+1]==='"'){field+='"';i++;} else inQ=false; }
-      else field+=c;
-    } else {
-      if(c==='"') inQ=true;
-      else if(c===',') {row.push(field);field='';}
-      else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}
-      else if(c==='\r'){}
-      else field+=c;
-    }
-  }
-  if(field.length>0||row.length>0){row.push(field);rows.push(row);}
-  return rows.filter(r=>r.length>1||(r.length===1&&r[0].trim()!==''));
-}
-function toObjects(rows){
-  const headers=rows[0].map(h=>h.trim());
-  return rows.slice(1).map(r=>{
-    const o={}; headers.forEach((h,i)=>o[h]=(r[i]||'').trim()); return o;
-  });
-}
-function num(v){ const n=parseInt(v,10); return isNaN(n)?0:n; }
-
-// ---- column resolver (tolerant to minor header differences) ----
-function col(obj, keys){
-  for(const k of keys){ if(k in obj) return obj[k]; }
-  // fuzzy: find header containing all words
-  const lowerKeys=Object.keys(obj);
-  for(const k of keys){
-    const want=k.toLowerCase();
-    const found=lowerKeys.find(h=>h.toLowerCase()===want);
-    if(found) return obj[found];
-  }
-  return '';
-}
-const C={
-  cur:['Current Window'], prev:['Previous Window'],
-  cname:['Client Name'], ename:['Expeditor Name'],
-  tuc:['Total Updates Done Current'], tup:['Total Updates Done Previous'],
-  pcp:['Progress Change Previous (last 7 Days)','Progress Change Previous (7 Days)'],
-  pcc:['Progress Change Current (7 Days)'],
-  pcd:['Progress Change Delta'],
-  cmp:['Comments Previous (last 7 Days)','Comments Previous (7 Days)'],
-  cmc:['Comments Current (7 Days)'],
-  cmd:['Comments Delta'],
-  isp:['Issues Previous (last 7 Days)','Issues Previous (7 Days)'],
-  isc:['Issues Current (7 Days)'],
-  isd:['Issues Delta'],
-  cup:['Critical Update Previous (last 7 Days)','Critical Update Previous (7 Days)'],
-  cuc:['Critical Update Current (7 Days)'],
-  cud:['Critical Update Delta']
+/* ============ DATA SOURCES ============ */
+const URLS={
+  winClient:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSFqCmxwary53PMGZdDmkSqa44z6eZqX47TPL0hDr3IKxDKmdUaGKIguvJOZF5ozXhIDT3JjK9-kvy-/pub?gid=0&single=true&output=csv",
+  winExp:"https://docs.google.com/spreadsheets/d/e/2PACX-1vTFOgugjEjEtm1tlHvnmHerS0b_6ySdWUXHsk8bUzHWO31YPUjmdu7XbPHMzHnSLHxWq2iR17b5ammh/pub?gid=0&single=true&output=csv",
+  evaClient:"https://docs.google.com/spreadsheets/d/e/2PACX-1vSmFGaugAa_R6samiDvQYYZ3_in5nfjFKLWjf_zFhlDyJc0VTw1g9w5ajEqWsRtz_AQbysPhRj1Q3Qu/pub?gid=0&single=true&output=csv",
+  evaExp:"https://docs.google.com/spreadsheets/d/e/2PACX-1vT11AtP3O92mCazswXkBJl2boloJb974zCbT-bhXJNRUvzLgtpum9RP-PwYtrIqEqOTm3W8eai3b4Qs/pub?gid=0&single=true&output=csv",
+  granular:"https://docs.google.com/spreadsheets/d/e/2PACX-1vQVwApPsM51ELoCI7Ma7Xzw3Xu8hx5OvC6L_13X2_fuVMDO-Pm4fp_Q3aHG8ql2RN7TXUKV3Q0QtA14/pub?gid=0&single=true&output=csv",
+  updateDays:"https://docs.google.com/spreadsheets/d/e/2PACX-1vRmwlVpJoh-SOwDeqypjhBC1h8Ze5QOaOusNb31grZ0yFLTouDjNJfjdvW9e0ym_Wk9Sg4qh6xQAm_B/pub?gid=0&single=true&output=csv"
 };
-
-// ---- formatting ----
-function deltaFmt(v){
-  v=num(v);
-  if(v>0) return '<div class="md du">+'+v+'</div>';
-  if(v<0) return '<div class="md dd">&#8722;'+Math.abs(v)+'</div>';
-  return '<div class="md df">&#8212;</div>';
+/* ============ CSV / FETCH UTILS ============ */
+function parseCSV(t){const R=[];let r=[],f='',q=false;
+for(let i=0;i<t.length;i++){const c=t[i];
+if(q){if(c==='"'){if(t[i+1]==='"'){f+='"';i++;}else q=false;}else f+=c;}
+else{if(c==='"')q=true;else if(c===','){r.push(f);f='';}else if(c==='\n'){r.push(f);R.push(r);r=[];f='';}else if(c!=='\r')f+=c;}}
+if(f.length>0||r.length>0){r.push(f);R.push(r);}
+return R.filter(x=>x.length>1||(x.length===1&&x[0].trim()!==''));}
+function toObjects(rows){const h=rows[0].map(x=>x.trim());
+return rows.slice(1).map(r=>{const o={};h.forEach((k,i)=>o[k]=(r[i]||'').trim());return o;});}
+function num(v){const n=parseFloat(v);return isNaN(n)?0:n;}
+function col(o,keys){for(const k of keys){if(k in o)return o[k];}
+const hs=Object.keys(o);for(const k of keys){const f=hs.find(h=>h.toLowerCase()===k.toLowerCase());if(f)return o[f];}return '';}
+function fetchCSV(url){if(!url)return Promise.resolve(null);
+const A=[url,'https://corsproxy.io/?url='+encodeURIComponent(url),'https://api.allorigins.win/raw?url='+encodeURIComponent(url)];let i=0;
+function nx(){if(i>=A.length)return Promise.reject(new Error('fetch failed'));
+return fetch(A[i++]).then(r=>{if(!r.ok)throw 0;return r.text();})
+.then(t=>{const s=t.trim().toLowerCase();if(s.startsWith('<!doctype')||s.startsWith('<html'))throw 0;return t;})
+.catch(()=>nx());}return nx();}
+/* ============ COLUMN MAPS ============ */
+const W={cur:['Current Window'],prev:['Previous Window'],cname:['Client Name'],ename:['Expeditor Name'],
+tuc:['Total Updates Done Current'],tup:['Total Updates Done Previous'],
+pcc:['Progress Change Current (7 Days)'],pcp:['Progress Change Previous (last 7 Days)','Progress Change Previous (7 Days)'],pcd:['Progress Change Delta'],
+cmc:['Comments Current (7 Days)'],cmd:['Comments Delta'],isc:['Issues Current (7 Days)'],isd:['Issues Delta'],
+cuc:['Critical Update Current (7 Days)'],cud:['Critical Update Delta']};
+const E={period:['Period'],ws:['Workspace'],exp:['Expeditor'],wscount:['Workspaces'],
+expd:['Expected Items (MTD)'],act:['Actual Items Updated (MTD)'],adopt:['Adoption %'],
+pc:['Progress Change'],nc:['Normal Comments'],iss:['Issues'],cu:['Critical Updates'],ph:['Photo Comments'],doc:['Doc Uploads'],qual:['Quality %']};
+const U={ws:['Workspace'],exp:['Expeditor'],maxd:['Max Possible Days (MTD)'],ud:['Unique Update Days'],
+web:['Web Only Days'],app:['App Only Days'],both:['Web + App Days'],udp:['Update Days %']};
+/* ============ ENTITY MODEL ============ */
+function key(s){return (s||'').toLowerCase().trim();}
+function buildModel(evaC,evaE,winC,winE,gran,days){
+  const clients={},exps={};
+  (evaC||[]).forEach(o=>{const k=key(col(o,E.ws));if(!k)return;clients[k]={name:col(o,E.ws),eva:o,serving:[],win:null};});
+  (winC||[]).forEach(o=>{const k=key(col(o,W.cname));if(!k)return;
+    if(!clients[k])clients[k]={name:col(o,W.cname),eva:null,serving:[],win:null};clients[k].win=o;});
+  (evaE||[]).forEach(o=>{const k=key(col(o,E.exp));if(!k)return;exps[k]={name:col(o,E.exp),eva:o,covering:[],win:null,days:[]};});
+  (winE||[]).forEach(o=>{const k=key(col(o,W.ename));if(!k)return;
+    if(!exps[k])exps[k]={name:col(o,W.ename),eva:null,covering:[],win:null,days:[]};exps[k].win=o;});
+  (gran||[]).forEach(o=>{
+    const ck=key(col(o,E.ws)),ek=key(col(o,E.exp));
+    if(clients[ck])clients[ck].serving.push(o);
+    if(exps[ek])exps[ek].covering.push(o);});
+  (days||[]).forEach(o=>{const ek=key(col(o,U.exp));if(exps[ek])exps[ek].days.push(o);});
+  return {clients:Object.values(clients),exps:Object.values(exps)};
 }
-function qualityBadge(pc,qs,isClient){
-  if(pc===0&&qs===0) return isClient?['dm','Dormant']:['dm','Inactive'];
-  if(pc===0&&qs>0)   return isClient?['sj','Subjective only']:['sj','Engaged &#183; No progress'];
-  const r=qs/pc*100;
-  if(r>=50) return ['hq','High quality'];
-  if(r>=20) return ['gq','Good quality'];
-  if(r>=10) return ['mq','Moderate'];
-  return ['lq','Low quality'];
-}
-function qualityPct(pc,qs){
-  if(pc===0) return '<span class="qna">&#8212;</span>';
-  return '<span class="qv">'+Math.round(qs/pc*100)+'%</span>';
-}
-function shortWindow(w){
-  // "23 Jun 2026 00:00 - 29 Jun 2026 23:59" -> "23 Jun – 29 Jun 2026"
-  if(!w) return '';
-  const parts=w.split(' - ');
-  if(parts.length!==2) return w;
-  const a=parts[0].replace(/\s*\d{2}:\d{2}$/,'').trim();
-  const b=parts[1].replace(/\s*\d{2}:\d{2}$/,'').trim();
-  const am=a.split(' '); // [23, Jun, 2026]
-  const bm=b.split(' ');
-  if(am.length>=2&&bm.length>=3){
-    return am[0]+' '+am[1]+' &#8211; '+bm[0]+' '+bm[1]+' '+bm[2];
+/* derived metrics per entity */
+function m(ent,isClient){
+  const eva=ent.eva,win=ent.win;
+  const expd=eva?num(col(eva,E.expd)):null;
+  const act=eva?num(col(eva,E.act)):null;
+  const adopt=eva?num(col(eva,E.adopt)):null;
+  let qhits=null,qmax=null,qual=null;
+  if(eva){qhits=num(col(eva,E.pc))+num(col(eva,E.nc))+num(col(eva,E.iss))+num(col(eva,E.cu))+num(col(eva,E.ph))+num(col(eva,E.doc));
+    qmax=(expd||0)*6;qual=qmax>0?Math.round(qhits/qmax*100):0;}
+  const pcc=win?Math.round(num(col(win,W.pcc))):null;
+  const pcd=win?Math.round(num(col(win,W.pcd))):null;
+  let cons=null,src=null;
+  if(!isClient&&ent.days.length){
+    let ud=0,md=0,web=0,app=0,both=0;
+    ent.days.forEach(o=>{ud+=num(col(o,U.ud));md+=num(col(o,U.maxd));web+=num(col(o,U.web));app+=num(col(o,U.app));both+=num(col(o,U.both));});
+    cons=md>0?Math.round(ud/md*100):0;src={web,app,both};
   }
-  return a+' &#8211; '+b;
+  const risk=(expd||0)*(100-(adopt||0));
+  return {expd,act,adopt,qual,qhits,qmax,pcc,pcd,cons,src,risk};
 }
-
-// ---- row builders ----
-function buildRow(o,isClient){
-  const pc=num(col(o,C.pcc));
-  const qs=num(col(o,C.cmc))+num(col(o,C.isc))+num(col(o,C.cuc));
-  const [cls,lbl]=qualityBadge(pc,qs,isClient);
-  const name=isClient?col(o,C.cname):col(o,C.ename);
-  return '<tr data-name="'+name.toLowerCase()+'" data-progress="'+pc+'">'
-    +'<td><div class="en">'+name+'</div><span class="badge '+cls+'">'+lbl+'</span></td>'
-    +'<td class="mc"><div class="mv">'+pc+'</div>'+deltaFmt(col(o,C.pcd))+'</td>'
-    +'<td class="mc"><div class="mv">'+num(col(o,C.cmc))+'</div>'+deltaFmt(col(o,C.cmd))+'</td>'
-    +'<td class="mc"><div class="mv">'+num(col(o,C.isc))+'</div>'+deltaFmt(col(o,C.isd))+'</td>'
-    +'<td class="mc"><div class="mv">'+num(col(o,C.cuc))+'</div>'+deltaFmt(col(o,C.cud))+'</td>'
-    +'<td class="mc">'+qualityPct(pc,qs)+'</td>'
-    +'</tr>';
+function adoptionBadge(expd,adopt){
+  if(expd===null)return['b-dm','No MTD data'];
+  if(expd===0)return['b-dm','No expected items'];
+  if(adopt>=50)return['b-hq','Good adoption'];
+  if(adopt>=20)return['b-gq','Building'];
+  if(adopt>0)return['b-mq','Low adoption'];
+  return['b-lq','Not started'];
 }
-
-function legendBlock(idSuffix,isClient){
-  const sj=isClient?'Subjective only':'Engaged &#183; No progress';
-  const dm=isClient?'Dormant':'Inactive';
-  return '<div class="lgrow">'
-    +'<span class="lglbl">Quality badge</span>'
-    +'<div class="qw"><span class="qi" id="qi'+idSuffix+'">?</span>'
-    +'<div class="qp" id="qp'+idSuffix+'">'
-    +'<div class="qpt">How quality is calculated</div>'
-    +'<div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>'
-    +'<div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 &#8211; 49%</span></div>'
-    +'<div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 &#8211; 19%</span></div>'
-    +'<div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>'
-    +'<div class="qpr"><span class="badge sj">'+sj+'</span><span class="qpct">No progress</span></div>'
-    +'<div class="qpr"><span class="badge dm">'+dm+'</span><span class="qpct">All zero</span></div>'
-    +'<div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change. Measures how much context accompanies each progress update.</div>'
-    +'</div></div>'
-    +'<span class="badge hq">High quality</span>'
-    +'<span class="badge gq">Good quality</span>'
-    +'<span class="badge mq">Moderate</span>'
-    +'<span class="badge lq">Low quality</span>'
-    +'<span class="badge sj">'+sj+'</span>'
-    +'<span class="badge dm">'+dm+'</span>'
-    +'</div>';
+function barColor(a){if(a>=50)return'var(--green)';if(a>=20)return'var(--blue)';if(a>0)return'var(--amber)';return'var(--red)';}
+function donut(pct,size,caption){
+  const r=(size-8)/2,c=2*Math.PI*r,cl=barColor(pct);
+  const off=c*(1-Math.min(pct,100)/100);
+  const ring='<div class="donut-wrap" style="width:'+size+'px;height:'+size+'px;">'
+   +'<svg width="'+size+'" height="'+size+'"><circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="#eceae4" stroke-width="7"/>'
+   +'<circle cx="'+size/2+'" cy="'+size/2+'" r="'+r+'" fill="none" stroke="'+cl+'" stroke-width="7" stroke-linecap="round" stroke-dasharray="'+c+'" stroke-dashoffset="'+off+'" transform="rotate(-90 '+size/2+' '+size/2+')"/></svg>'
+   +'<div class="donut-txt" style="color:'+cl+'">'+(pct===null?'&#8212;':pct+'%')+'</div></div>';
+  return caption?'<div class="donut-col">'+ring+'<span class="donut-cap">'+caption+'</span></div>':ring;
 }
-
-function render(clientData,expData){
-  const cur=shortWindow(col(clientData[0],C.cur));
-  const prev=shortWindow(col(clientData[0],C.prev));
-  const today=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
-
-  // summary
-  let tuc=0,tup=0,pcc=0,pcp=0,ac=0,ae=0;
-  clientData.forEach(o=>{tuc+=num(col(o,C.tuc));tup+=num(col(o,C.tup));pcc+=num(col(o,C.pcc));pcp+=num(col(o,C.pcp));if(num(col(o,C.pcc))>0)ac++;});
-  expData.forEach(o=>{if(num(col(o,C.pcc))>0)ae++;});
-
-  // sort A-Z by default
-  const cSorted=[...clientData].sort((a,b)=>col(a,C.cname).toLowerCase().localeCompare(col(b,C.cname).toLowerCase()));
-  const eSorted=[...expData].sort((a,b)=>col(a,C.ename).toLowerCase().localeCompare(col(b,C.ename).toLowerCase()));
-
-  const clientRows=cSorted.map(o=>buildRow(o,true)).join('');
-  const expRows=eSorted.map(o=>buildRow(o,false)).join('');
-
-  const headerRow='<tr><th style="width:22%">NAMECOL</th><th class="rc" style="width:14%">Progress change</th><th class="rc" style="width:11%">Comments</th><th class="rc" style="width:10%">Issues</th><th class="rc" style="width:13%">Critical updates</th><th class="rc" style="width:10%">Quality %</th></tr>';
-  const wnote='<div class="wnote"><span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current window vs previous window &nbsp;&#183;&nbsp; Previous: <strong>'+prev+'</strong> &nbsp;&#183;&nbsp; Current: <strong>'+cur+'</strong></div>';
-
-  document.getElementById('root').innerHTML=
-    '<div class="rh"><div><p class="rt">MMT adoption report</p><p class="rs">Generated on '+today+'</p></div>'
-    +'<div class="wb"><div>Current window &nbsp;<b>'+cur+'</b></div><div>Previous window <b>'+prev+'</b></div></div></div>'
-    +'<div class="sg">'
-    +'<div class="sc"><div class="sl">Total updates</div><div class="sv">'+tuc+'</div><div class="ss">vs '+tup+' in previous window</div></div>'
-    +'<div class="sc"><div class="sl">Progress changes</div><div class="sv">'+pcc+'</div><div class="ss">vs '+pcp+' in previous window</div></div>'
-    +'<div class="sc"><div class="sl">Active clients</div><div class="sv">'+ac+' / '+clientData.length+'</div><div class="ss">Progress change &gt; 0 in current window</div></div>'
-    +'<div class="sc"><div class="sl">Active expeditors</div><div class="sv">'+ae+' / '+expData.length+'</div><div class="ss">Progress change &gt; 0 in current window</div></div>'
-    +'</div>'
-    // client
-    +'<div class="sec-top"><div class="sec-l"><span class="st">Client activity</span><span class="sc2">'+clientData.length+' clients</span></div>'
-    +'<div class="srt">Sort by <select onchange="sortTable(\'cb\',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div></div>'
-    +wnote
-    +legendBlock('c',true)
-    +'<table><thead>'+headerRow.replace('NAMECOL','Client')+'</thead><tbody id="cb">'+clientRows+'</tbody></table>'
-    // expeditor
-    +'<div class="sec-top" style="margin-top:2rem;"><div class="sec-l"><span class="st">Expeditor activity</span><span class="sc2">'+expData.length+' expeditors</span></div>'
-    +'<div class="srt">Sort by <select onchange="sortTable(\'eb\',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div></div>'
-    +wnote
-    +legendBlock('e',false)
-    +'<table><thead>'+headerRow.replace('NAMECOL','Expeditor')+'</thead><tbody id="eb">'+expRows+'</tbody></table>';
-
-  // wire popups
-  ['c','e'].forEach(s=>{
-    const icon=document.getElementById('qi'+s);
-    if(icon) icon.addEventListener('click',function(e){e.stopPropagation();togglePopup('qp'+s);});
-  });
-}
-
 function togglePopup(id){
   const p=document.getElementById(id);
-  document.querySelectorAll('.qp').forEach(x=>{if(x.id!==id)x.classList.remove('open');});
-  p.classList.toggle('open');
+  document.querySelectorAll('.kpop').forEach(x=>{if(x.id!==id)x.classList.remove('open');});
+  if(p)p.classList.toggle('open');
 }
-document.addEventListener('click',()=>document.querySelectorAll('.qp').forEach(p=>p.classList.remove('open')));
-
-function sortTable(id,mode){
-  const tbody=document.getElementById(id);
-  const rows=Array.prototype.slice.call(tbody.querySelectorAll('tr'));
-  rows.sort((a,b)=>{
-    if(mode==='name') return a.dataset.name.localeCompare(b.dataset.name);
-    return parseInt(b.dataset.progress)-parseInt(a.dataset.progress);
+document.addEventListener('click',()=>document.querySelectorAll('.kpop').forEach(p=>p.classList.remove('open')));
+function momChip(pcc,pcd){
+  if(pcc===null)return'';
+  let cls='flat',arrow='&#8212;';
+  if(pcd>0){cls='up';arrow='&#9650; +'+pcd;}
+  else if(pcd<0){cls='down';arrow='&#9660; &#8722;'+Math.abs(pcd);}
+  return '<span class="k-chip '+cls+'">'+pcc+' this window '+arrow+'</span>';
+}
+</script>
+<script>
+/* ============ INSIGHTS ENGINE ============ */
+function buildInsights(clients,exps){
+  const warn=[],good=[];
+  clients.forEach(c=>{const x=m(c,true);
+    if(x.expd>=40&&x.adopt===0)warn.push({tag:'crit',ent:'c-'+key(c.name),html:'<b>'+c.name+'</b>: '+x.expd+' expected items, zero updates this month'});
+    else if(x.adopt>0&&x.adopt<10&&x.expd>=40)warn.push({tag:'watch',ent:'c-'+key(c.name),html:'<b>'+c.name+'</b>: only '+x.adopt+'% adoption on '+x.expd+' expected items'});
+    if(x.pcd!==null&&x.pcd<=-30)warn.push({tag:'watch',ent:'c-'+key(c.name),html:'<b>'+c.name+'</b>: window momentum falling ('+x.pcd+' progress vs last window)'});
+    if(x.adopt>=50)good.push({tag:'win',ent:'c-'+key(c.name),html:'<b>'+c.name+'</b>: '+x.adopt+'% adoption &#8212; strongest client this month'});
+    else if(x.pcd!==null&&x.pcd>=50)good.push({tag:'win',ent:'c-'+key(c.name),html:'<b>'+c.name+'</b>: momentum surging (+'+x.pcd+' progress this window)'});
   });
-  rows.forEach(r=>tbody.appendChild(r));
+  exps.forEach(e=>{const x=m(e,false);
+    if(x.expd>=100&&x.adopt<=2)warn.push({tag:'crit',ent:'e-'+key(e.name),html:'<b>'+e.name+'</b>: '+x.expd+' items pending across clients, '+x.adopt+'% adoption'});
+    if(x.cons!==null&&x.cons>=50)good.push({tag:'win',ent:'e-'+key(e.name),html:'<b>'+e.name+'</b>: most consistent &#8212; active '+x.cons+'% of days'});
+    if(x.adopt>=50&&x.expd>=5)good.push({tag:'win',ent:'e-'+key(e.name),html:'<b>'+e.name+'</b>: '+x.adopt+'% adoption on '+x.expd+' items'});
+  });
+  // split-personality: same expeditor great at one client, absent at another
+  exps.forEach(e=>{
+    if(e.covering.length<2)return;
+    const rows=e.covering.map(o=>({ws:col(o,E.ws),adopt:num(col(o,E.adopt)),expd:num(col(o,E.expd))})).filter(r=>r.expd>=5);
+    if(rows.length<2)return;
+    const hi=rows.reduce((a,b)=>a.adopt>b.adopt?a:b),lo=rows.reduce((a,b)=>a.adopt<b.adopt?a:b);
+    if(hi.adopt>=40&&lo.adopt===0)warn.push({tag:'watch',ent:'e-'+key(e.name),html:'<b>'+e.name+'</b>: '+hi.adopt+'% at '+hi.ws+' but 0% at '+lo.ws+' &#8212; uneven coverage'});
+  });
+  warn.sort((a,b)=>(a.tag==='crit'?0:1)-(b.tag==='crit'?0:1));
+  return {warn:warn.slice(0,8),good:good.slice(0,8)};
 }
-
-// ---- resilient fetch: direct first, then CORS proxy fallbacks ----
-function fetchCSV(url){
-  const attempts=[
-    url,
-    'https://corsproxy.io/?url='+encodeURIComponent(url),
-    'https://api.allorigins.win/raw?url='+encodeURIComponent(url)
-  ];
-  let i=0;
-  function tryNext(){
-    if(i>=attempts.length) return Promise.reject(new Error('All fetch attempts failed'));
-    const u=attempts[i++];
-    return fetch(u).then(r=>{
-      if(!r.ok) throw new Error('HTTP '+r.status);
-      return r.text();
-    }).then(t=>{
-      // guard: proxies sometimes return an HTML error page
-      if(t.trim().toLowerCase().startsWith('<!doctype')||t.trim().toLowerCase().startsWith('<html')) throw new Error('Non-CSV response');
-      return t;
-    }).catch(()=>tryNext());
-  }
-  return tryNext();
+function insightHTML(list,cls,title,icon,ruleId,ruleText){
+  let h='<div class="ins-col"><div class="ins-h '+cls+'">'+icon+' '+title
+   +' <span class="ki" onclick="event.stopPropagation();togglePopup(\''+ruleId+'\')">i</span>'
+   +'<span class="kpop qp" id="'+ruleId+'" style="top:26px;left:0;right:auto;min-width:270px;max-width:340px;">'+ruleText+'</span>'
+   +'</div><div class="ins-body">';
+  if(!list.length)h+='<div class="ins-empty">Nothing flagged right now.</div>';
+  list.forEach(i=>{h+='<div class="ins" onclick="jumpTo(\''+i.ent+'\')"><span class="tag '+i.tag+'">'+(i.tag==='crit'?'Critical':i.tag==='watch'?'Watch':'Win')+'</span><span>'+i.html+'</span></div>';});
+  return h+'</div></div>';
 }
+function jumpTo(id){
+  const kind=id.startsWith('c-')?'c':'e';
+  const k=id.slice(2);
+  openModal(kind,encodeURIComponent(k));
+}
+</script>
+<script>
+/* ============ CARD RENDERING ============ */
+function catBreakdown(eva){
+  if(!eva)return'';
+  const totExp=num(col(eva,E.expd));
+  return '<div class="sub-h" style="position:relative;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">Count of items where certain quality update happened &#8212; out of '+totExp+' expected items (MTD)'
+   +'<span class="ki" onclick="event.stopPropagation();togglePopup(\'catinfo\')">i</span>'
+   +'<span class="kpop" id="catinfo" style="top:22px;left:0;right:auto;min-width:280px;max-width:360px;text-transform:none;letter-spacing:0;font-weight:400;">Each cell = how many of the '+totExp+' expected items had that activity <b>at least once</b> this month. An item is counted <b>only once per category</b> &#8212; e.g. 10 comments on one item still counts as 1 in Comments. The same item can appear in multiple categories. Max per cell = '+totExp+'.</span></div><div class="catgrid">'
+   +'<div class="catcell"><div class="catlbl">Progress Change</div><div class="catval">'+num(col(eva,E.pc))+'</div></div>'
+   +'<div class="catcell"><div class="catlbl">Comments</div><div class="catval">'+num(col(eva,E.nc))+'</div></div>'
+   +'<div class="catcell"><div class="catlbl">Issues</div><div class="catval">'+num(col(eva,E.iss))+'</div></div>'
+   +'<div class="catcell"><div class="catlbl">Critical Updates</div><div class="catval">'+num(col(eva,E.cu))+'</div></div>'
+   +'<div class="catcell"><div class="catlbl">Photos</div><div class="catval">'+num(col(eva,E.ph))+'</div></div>'
+   +'<div class="catcell"><div class="catlbl">Docs</div><div class="catval">'+num(col(eva,E.doc))+'</div></div></div>';
+}
+function miniAdoptRow(name,expd,act,adopt,extra){
+  return '<div class="mini"><span class="m-name">'+name+'</span>'
+   +'<span class="m-nums">'+act+' / '+expd+'</span>'
+   +'<span class="m-bar"><div style="width:'+Math.min(adopt,100)+'%;background:'+barColor(adopt)+'"></div></span>'
+   +'<span class="m-pct" style="color:'+barColor(adopt)+'">'+adopt+'%</span>'+(extra||'')+'</div>';
+}
+function srcMini(o){
+  const web=num(col(o,U.web)),app=num(col(o,U.app)),both=num(col(o,U.both)),tot=web+app+both;
+  if(tot===0)return'<span class="m-nums">&#8212;</span>';
+  return '<span class="srcbar"><span class="src-web" style="width:'+(web/tot*100)+'%"></span><span class="src-app" style="width:'+(app/tot*100)+'%"></span><span class="src-both" style="width:'+(both/tot*100)+'%"></span></span>';
+}
+let __wid=0;
+function stripStats(x,isClient,wsCount){
+  let h='<div class="hstats">';
+  if(!isClient)h+='<div class="hstat"><div class="hs-lbl">Clients</div><div class="hs-val">'+wsCount+'</div><div class="hs-sub">covered</div></div>';
+  h+='<div class="hstat"><div class="hs-lbl">Expected</div><div class="hs-val">'+(x.expd===null?'&#8212;':x.expd)+'</div><div class="hs-sub">items MTD</div></div>'
+   +'<div class="hstat"><div class="hs-lbl">Updated</div><div class="hs-val">'+(x.act===null?'&#8212;':x.act)+'</div><div class="hs-sub">items MTD</div></div>'
+   +'<div class="hstat"><div class="hs-lbl">MTD Quality</div><div class="hs-val">'+(x.qual===null?'&#8212;':x.qual+'%')+'</div><div class="hs-sub">'+(x.qhits===null?'':x.qhits+' of '+x.qmax+' hits')+'</div></div>';
+  const pcol=x.pcd>0?'var(--green)':x.pcd<0?'var(--red)':'inherit';
+  const wid='wt'+(++__wid);
+  const wtip=isClient
+    ?'Milestone-level count of progress updates on this client in the current 7-day window. Counts every milestone update &#8212; by anyone (not only responsible expeditors) and on any item, including items not in the expected list. Not comparable to the MTD item counts on the left.'
+    :'Milestone-level count of progress updates this expeditor made anywhere in the current 7-day window &#8212; regardless of whether they are the responsible person or the item is expected. Not comparable to the MTD item counts on the left.';
+  h+='<div class="hstat win"><div class="win-tag">Current window <span class="ki" onclick="event.stopPropagation();togglePopup(\''+wid+'\')">i</span></div>'
+   +'<span class="kpop" id="'+wid+'" style="top:36px;right:-4px;left:auto;min-width:280px;max-width:340px;text-transform:none;letter-spacing:0;font-weight:400;text-align:left;">'+wtip+'</span>'
+   +'<div class="hs-lbl">Progress Changes</div><div class="hs-val" style="color:'+pcol+'">'+(x.pcc===null?'&#8212;':x.pcc)+'</div><div class="hs-sub" style="color:'+(x.pcd>0?'var(--green)':x.pcd<0?'var(--red)':'var(--mut)')+'">'+(x.pcd===null?'milestones':(x.pcd>=0?'+':'&#8722;')+Math.abs(x.pcd)+' vs prev window &#183; milestones')+'</div></div>'
+   +'</div>';
+  return h;
+}
+function clientCard(c){
+  const x=m(c,true);const [bc,bl]=adoptionBadge(x.expd,x.adopt);
+  const id='card-c-'+key(c.name);
+  return '<div class="card" id="'+id+'"><div class="c-head" style="--cols:4" onclick="openModal(\'c\',\''+encodeURIComponent(key(c.name))+'\')">'
+   +'<div class="c-id">'+donut(x.adopt,58,'MTD adoption')
+   +'<div class="c-info"><div class="c-name">'+c.name+'</div></div></div>'
+   +stripStats(x,true)
+   +'</div></div>';
+}
+function expCard(e){
+  const x=m(e,false);const [bc,bl]=adoptionBadge(x.expd,x.adopt);
+  const id='card-e-'+key(e.name);
+  const wsCount=e.eva?num(col(e.eva,E.wscount)):e.covering.length;
+  return '<div class="card" id="'+id+'"><div class="c-head" style="--cols:5" onclick="openModal(\'e\',\''+encodeURIComponent(key(e.name))+'\')">'
+   +'<div class="c-id">'+donut(x.adopt,58,'MTD adoption')
+   +'<div class="c-info"><div class="c-name">'+e.name+'</div></div></div>'
+   +stripStats(x,false,wsCount)
+   +'</div></div>';
+}
+/* ============ DETAIL MODAL ============ */
+function weekBlock(win,isClient){
+  if(!win)return'';
+  function cell(lbl,cur,dlt,colorize){
+    const d=Math.round(num(dlt));
+    const vcol=colorize?(d>0?'var(--green)':d<0?'var(--red)':'inherit'):'inherit';
+    const scol=d>0?'var(--green)':d<0?'var(--red)':'var(--mut)';
+    return '<div class="wk"><div class="hs-lbl">'+lbl+'</div><div class="hs-val" style="color:'+vcol+'">'+Math.round(num(cur))+'</div><div class="hs-sub" style="color:'+scol+'">'+(d>0?'+':d<0?'&#8722;':'')+(d!==0?Math.abs(d):'&#8212;')+' vs prev</div></div>';}
+  const wid='wt'+(++__wid);
+  const wtip=isClient
+    ?'Raw milestone-level update counts on this client in the current 7-day window. Includes updates by anyone (not only responsible expeditors) and on any item &#8212; expected or not. These are activity volumes, not the item-level MTD adoption numbers above.'
+    :'Raw milestone-level update counts made by this expeditor anywhere in the current 7-day window &#8212; regardless of responsibility or whether items are expected. These are activity volumes, not the item-level MTD adoption numbers above.';
+  return '<div class="win-panel"><div class="win-tag">Current window'+(state.window?' ('+state.window+')':'')+' &#8212; activity counts <span class="ki" onclick="event.stopPropagation();togglePopup(\''+wid+'\')">i</span></div>'
+   +'<span class="kpop" id="'+wid+'" style="top:30px;left:10px;right:10px;min-width:0;text-transform:none;letter-spacing:0;font-weight:400;">'+wtip+'</span>'
+   +'<div class="wkrow" style="margin-bottom:0;">'
+   +cell('Progress Changes',col(win,W.pcc),col(win,W.pcd),true)
+   +cell('Comments',col(win,W.cmc),col(win,W.cmd))
+   +cell('Issues',col(win,W.isc),col(win,W.isd))
+   +cell('Critical Update',col(win,W.cuc),col(win,W.cud))
+   +'</div></div>';
+}
+function modalCommon(name,x,bc,bl,isClient,wsCount){
+  let h='<div class="m-head">'+donut(x.adopt,64,'MTD adoption')
+   +'<div><div class="m-title">'+name+'</div></div>'
+   +'<button class="m-close" onclick="closeModal()">&#10005;</button></div><div class="m-body">';
+  h+='<div class="m-grid">';
+  if(!isClient)h+='<div class="m-stat"><div class="m-slbl">Clients</div><div class="m-sval">'+wsCount+'</div><div class="m-ssub">covered</div></div>';
+  h+='<div class="m-stat"><div class="m-slbl">Expected updates (MTD)</div><div class="m-sval">'+(x.expd===null?'&#8212;':x.expd)+'</div><div class="m-ssub">unique items needing updates</div></div>'
+   +'<div class="m-stat"><div class="m-slbl">Updated (MTD)</div><div class="m-sval">'+(x.act===null?'&#8212;':x.act)+'</div><div class="m-ssub">of the '+(x.expd===null?'&#8212;':x.expd)+' expected items</div></div>'
+   +'<div class="m-stat"><div class="m-slbl">MTD Adoption</div><div class="m-sval">'+(x.adopt===null?'&#8212;':x.adopt+'%')+'</div><div class="m-ssub">updated &#247; expected</div></div>'
+   +'<div class="m-stat"><div class="m-slbl">MTD Quality</div><div class="m-sval">'+(x.qual===null?'&#8212;':x.qual+'%')+'</div><div class="m-ssub">'+(x.qhits===null?'':x.qhits+' hits &#247; '+x.qmax+' max (expected &#215; 6)')+'</div></div>';
+  h+='</div>';
+  if(x.qmax)h+='<div class="m-formula"><b>Quality math:</b> '+x.qhits+' quality hits &#247; ('+x.expd+' expected items &#215; 6 categories = '+x.qmax+') = '+x.qual+'%</div>';
+  return h;
+}
+function clientModal(c){
+  const x=m(c,true);const [bc,bl]=adoptionBadge(x.expd,x.adopt);
+  let h=modalCommon(c.name,x,bc,bl,true);
+  h+=weekBlock(c.win,true)+catBreakdown(c.eva);
+  if(c.serving.length){
+    h+='<div class="sub-h">Expeditors responsible for this client (MTD)</div>'
+     +'<div class="empty" style="padding:0 0 10px;">This client&#8217;s expected items are owned by these expeditors. All counts below are for this client only, except where marked.</div>';
+    c.serving.sort((a,b)=>num(col(b,E.expd))-num(col(a,E.expd))).forEach(o=>{
+      const nm=col(o,E.exp),expd=num(col(o,E.expd)),act=num(col(o,E.act)),adopt=num(col(o,E.adopt));
+      const ex=state.model.exps.find(z=>key(z.name)===key(nm));
+      let consLine='';
+      if(ex&&ex.days.length){
+        const drow=ex.days.find(z=>key(col(z,U.ws))===key(c.name));
+        if(drow){
+          const ud=num(col(drow,U.ud)),md=num(col(drow,U.maxd));
+          const cp=md>0?Math.round(ud/md*100):0;
+          const cid2='wt'+(++__wid);
+          consLine='<div class="xp-upd" style="margin-top:2px;position:relative;">Update consistency (MTD): <b style="color:'+barColor(cp)+'">'+cp+'%</b> <span style="color:var(--mut)">&#8212; active '+ud+' of '+md+' days on this client</span> '
+           +'<span class="ki" onclick="event.stopPropagation();togglePopup(\''+cid2+'\')">i</span>'
+           +'<span class="kpop" id="'+cid2+'" style="top:22px;left:0;right:auto;min-width:260px;max-width:330px;text-transform:none;letter-spacing:0;font-weight:400;">Distinct days this month with at least one update by this expeditor on this client &#247; days elapsed in the month so far ('+md+').</span></div>';
+        }
+      }
+      h+='<div class="xp"><div class="xp-top" onclick="this.parentElement.classList.toggle(\'open\')">'
+       +'<div><div class="xp-name">'+nm+'</div>'
+       +'<div class="xp-upd">Updated <b>'+act+'</b> of <b>'+expd+'</b> expected items (MTD, this client)</div>'
+       +consLine+'</div>'
+       +'<div class="xp-right"><span class="xp-adopt" style="color:'+barColor(adopt)+'">'+adopt+'%<small>MTD adoption on this client</small></span><span class="chev">&#9660;</span></div>'
+       +'</div><div class="xp-det">';
+      if(ex&&ex.win){
+        function qc(lbl,cur,dlt){
+          const d=Math.round(num(dlt));
+          const sc=d>0?'var(--green)':d<0?'var(--red)':'var(--mut)';
+          return '<div class="wk"><div class="hs-lbl">'+lbl+'</div><div class="hs-val">'+Math.round(num(cur))+'</div><div class="hs-sub" style="color:'+sc+'">'+(d>0?'+':d<0?'&#8722;':'')+(d!==0?Math.abs(d):'&#8212;')+' vs prev</div></div>';
+        }
+        const pd=Math.round(num(col(ex.win,W.pcd)));
+        const pvcol=pd>0?'var(--green)':pd<0?'var(--red)':'inherit';
+        const pscol=pd>0?'var(--green)':pd<0?'var(--red)':'var(--mut)';
+        const progCell='<div class="wk"><div class="hs-lbl">Progress Changes</div><div class="hs-val" style="color:'+pvcol+'">'+Math.round(num(col(ex.win,W.pcc)))+'</div><div class="hs-sub" style="color:'+pscol+'">'+(pd>0?'+':pd<0?'&#8722;':'')+(pd!==0?Math.abs(pd):'&#8212;')+' vs prev</div></div>';
+        h+='<div class="win-panel"><div class="win-tag">Current window (last 7 days) &#8212; Expeditor Update Performance &#8212; irrespective of client &#8212; Overall</div>'
+         +'<div class="wkrow" style="margin-bottom:0;">'
+         +progCell
+         +qc('Comments',col(ex.win,W.cmc),col(ex.win,W.cmd))
+         +qc('Issues',col(ex.win,W.isc),col(ex.win,W.isd))
+         +qc('Critical Update',col(ex.win,W.cuc),col(ex.win,W.cud))
+         +'</div></div>';
+      }
+      h+='<div class="xp-sec">Count of items where certain quality update happened &#8212; out of '+expd+' expected items (MTD, this client)</div>'
+       +'<div class="xp-cats">'
+       +'<div class="catcell"><div class="catlbl">Progress Change</div><div class="catval">'+num(col(o,E.pc))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Comments</div><div class="catval">'+num(col(o,E.nc))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Issues</div><div class="catval">'+num(col(o,E.iss))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Critical Updates</div><div class="catval">'+num(col(o,E.cu))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Photos</div><div class="catval">'+num(col(o,E.ph))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Docs</div><div class="catval">'+num(col(o,E.doc))+'</div></div>'
+       +'</div></div></div>';
+    });
+  }else h+='<div class="empty">No expeditor breakdown available.</div>';
+  return h+'</div>';
+}
+function expModal(e){
+  const x=m(e,false);const [bc,bl]=adoptionBadge(x.expd,x.adopt);
+  const wsCount=e.eva?num(col(e.eva,E.wscount)):e.covering.length;
+  let h=modalCommon(e.name,x,bc,bl,false,wsCount);
+  h+=weekBlock(e.win,false)+catBreakdown(e.eva);
+  if(e.covering.length){
+    h+='<div class="sub-h">Coverage by client (MTD)</div>'
+     +'<div class="empty" style="padding:0 0 10px;">Items expected from this expeditor per client, what they updated, and how often they showed up. Expand a client for its overall window activity and quality detail.</div>';
+    const dayMap={};e.days.forEach(o=>dayMap[key(col(o,U.ws))]=o);
+    e.covering.sort((a,b)=>num(col(b,E.expd))-num(col(a,E.expd))).forEach(o=>{
+      const ws=col(o,E.ws),expd=num(col(o,E.expd)),act=num(col(o,E.act)),adopt=num(col(o,E.adopt));
+      const d=dayMap[key(ws)];
+      let dayLine='',dayTable='';
+      if(d){
+        const ud=num(col(d,U.ud)),md=num(col(d,U.maxd)),web=num(col(d,U.web)),app=num(col(d,U.app)),both=num(col(d,U.both));
+        const cpct=md>0?Math.round(ud/md*100):0;
+        const cid='wt'+(++__wid);
+        dayLine='<div class="xp-upd" style="margin-top:2px;position:relative;">Update consistency (MTD): <b style="color:'+barColor(cpct)+'">'+cpct+'%</b> <span style="color:var(--mut)">&#8212; active '+ud+' of '+md+' days on this client</span> '
+         +'<span class="ki" onclick="event.stopPropagation();togglePopup(\''+cid+'\')">i</span>'
+         +'<span class="kpop" id="'+cid+'" style="top:22px;left:0;right:auto;min-width:260px;max-width:330px;text-transform:none;letter-spacing:0;font-weight:400;">Distinct days this month with at least one update by this expeditor on this client &#247; days elapsed in the month so far ('+md+').</span></div>';
+        dayTable='<div class="xp-sec" style="margin-top:12px;">Update days &amp; source (MTD)</div>'
+         +'<div class="wkrow" style="margin-bottom:2px;">'
+         +'<div class="wk"><div class="hs-lbl">Days in month so far</div><div class="hs-val">'+md+'</div></div>'
+         +'<div class="wk"><div class="hs-lbl">Web only</div><div class="hs-val">'+web+'</div><div class="hs-sub">days</div></div>'
+         +'<div class="wk"><div class="hs-lbl">App only</div><div class="hs-val">'+app+'</div><div class="hs-sub">days</div></div>'
+         +'<div class="wk"><div class="hs-lbl">Web + App</div><div class="hs-val">'+both+'</div><div class="hs-sub">days</div></div>'
+         +'</div>';
+      }
+      h+='<div class="xp"><div class="xp-top" onclick="this.parentElement.classList.toggle(\'open\')">'
+       +'<div><div class="xp-name">'+ws+'</div>'
+       +'<div class="xp-upd">Updated <b>'+act+'</b> of <b>'+expd+'</b> expected items (MTD, this client)</div>'
+       +dayLine+'</div>'
+       +'<div class="xp-right"><span class="xp-adopt" style="color:'+barColor(adopt)+'">'+adopt+'%<small>MTD adoption on this client</small></span><span class="chev">&#9660;</span></div>'
+       +'</div><div class="xp-det">';
+      h+='<div class="xp-sec">Count of items where certain quality update happened &#8212; out of '+expd+' expected items (MTD, by this expeditor)</div>'
+       +'<div class="xp-cats">'
+       +'<div class="catcell"><div class="catlbl">Progress Change</div><div class="catval">'+num(col(o,E.pc))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Comments</div><div class="catval">'+num(col(o,E.nc))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Issues</div><div class="catval">'+num(col(o,E.iss))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Critical Updates</div><div class="catval">'+num(col(o,E.cu))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Photos</div><div class="catval">'+num(col(o,E.ph))+'</div></div>'
+       +'<div class="catcell"><div class="catlbl">Docs</div><div class="catval">'+num(col(o,E.doc))+'</div></div>'
+       +'</div>'+dayTable+'</div></div>';
+    });
+  }else h+='<div class="empty">No per-client breakdown available.</div>';
+  return h+'</div>';
+}
+function openModal(kind,ekey){
+  const k=decodeURIComponent(ekey);
+  const list=kind==='c'?state.model.clients:state.model.exps;
+  const ent=list.find(x=>key(x.name)===k);
+  if(!ent)return;
+  document.getElementById('mbox').innerHTML=kind==='c'?clientModal(ent):expModal(ent);
+  document.getElementById('mov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(ev){
+  if(ev&&ev.target!==document.getElementById('mov'))return;
+  document.getElementById('mov').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('mov').classList.remove('open');document.body.style.overflow='';}});
+</script>
+<script>
+/* ============ STATE, FILTERS, RENDER ============ */
+const state={view:'clients',search:'',status:'all',sort:'attention',model:null,insights:null,period:'',window:''};
+function statusOf(ent,isClient){const x=m(ent,isClient);const[,l]=adoptionBadge(x.expd,x.adopt);
+  if(l==='Good adoption')return'good';if(l==='Building')return'building';if(l==='Low adoption')return'low';
+  if(l==='Not started')return'none';return'nodata';}
+function applyFilters(list,isClient){
+  let out=list;
+  if(state.search){const q=state.search.toLowerCase();out=out.filter(e=>e.name.toLowerCase().includes(q));}
+  if(state.status!=='all')out=out.filter(e=>statusOf(e,isClient)===state.status);
+  const sorted=[...out];
+  sorted.sort((a,b)=>{
+    const xa=m(a,isClient),xb=m(b,isClient);
+    switch(state.sort){
+      case 'name':return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+      case 'adopt':return (xb.adopt||0)-(xa.adopt||0);
+      case 'expd':return (xb.expd||0)-(xa.expd||0);
+      case 'momentum':return (xb.pcd||0)-(xa.pcd||0);
+      default:return xb.risk-xa.risk; // attention
+    }});
+  return sorted;
+}
+function renderCards(){
+  const isClient=state.view==='clients';
+  const list=applyFilters(isClient?state.model.clients:state.model.exps,isClient);
+  const grid=document.getElementById('cardgrid');
+  grid.innerHTML=list.length?list.map(e=>isClient?clientCard(e):expCard(e)).join(''):'<div class="nores">No '+(isClient?'clients':'expeditors')+' match your filters.</div>';
+}
+function syncSticky(){
+  const hd=document.querySelector('.hdr'),ct=document.querySelector('.ctrl');
+  if(hd&&ct)ct.style.top=hd.offsetHeight+'px';
+}
+window.addEventListener('resize',syncSticky);
+function syncControls(){
+  document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.v===state.view));
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c.dataset.s===state.status));
+}
+function setView(v){state.view=v;syncControls();renderCards();}
+function setStatus(s){state.status=s;syncControls();renderCards();}
+function setSort(s){state.sort=s;renderCards();}
+function setSearch(v){state.search=v;renderCards();}
 
-// ---- load ----
-Promise.all([ fetchCSV(CLIENT_URL), fetchCSV(EXP_URL) ]).then(([ctext,etext])=>{
-  const cData=toObjects(parseCSV(ctext)).filter(o=>col(o,C.cname).trim()!=='');
-  const eData=toObjects(parseCSV(etext)).filter(o=>col(o,C.ename).trim()!=='');
-  if(cData.length===0&&eData.length===0){
-    document.getElementById('root').innerHTML='<div class="err">No data found in the sheets. Please check the published links.</div>';
-    return;
-  }
-  render(cData,eData);
-}).catch(err=>{
-  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets...<br>'+err+'<br><br>Check that both sheets are still published to the web (File &#8594; Share &#8594; Publish to web &#8594; CSV).</div>';
-});
+/* ============ PAGE ASSEMBLY ============ */
+function kInfo(id,title,text){
+  return '<span class="ki" onclick="event.stopPropagation();togglePopup(\''+id+'\')">i</span><span class="kpop qp" id="'+id+'"><b>'+title+':</b> '+text+'</span>';
+}
+function renderApp(){
+  const {clients,exps}=state.model;
+  let te=0,ta=0,qhits=0,pccT=0,pcpT=0;
+  clients.forEach(c=>{const x=m(c,true);if(x.expd!==null){te+=x.expd;ta+=x.act;}
+    if(c.eva){qhits+=num(col(c.eva,E.pc))+num(col(c.eva,E.nc))+num(col(c.eva,E.iss))+num(col(c.eva,E.cu))+num(col(c.eva,E.ph))+num(col(c.eva,E.doc));}});
+  clients.forEach(c=>{if(c.win){pccT+=num(col(c.win,W.pcc));pcpT+=num(col(c.win,W.pcp));}});
+  const overall=te>0?Math.round(ta/te*100):0;
+  const wq=te>0?Math.round(qhits/(te*6)*100):0;
+  const momDelta=Math.round(pccT-pcpT);
+  const engC=clients.filter(c=>c.win&&num(col(c.win,W.tuc))>0).length;
+  const engE=exps.filter(e=>e.win&&num(col(e.win,W.tuc))>0).length;
+  const today=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+
+  document.getElementById('app').innerHTML=
+  '<div class="hdr"><div><div class="h-title">MMT Adoption Command Center</div>'
+  +'<div class="h-sub">Live &#183; '+today+'</div>'
+  +'<div class="h-sub">MTD means - Month till Date</div></div>'
+  +'<div class="h-right">'
+  +(state.period?'<span class="pill">MTD <b>'+state.period+'</b></span>':'')
+  +(state.window?'<span class="pill">Current window <b>'+state.window+'</b></span>':'')+(state.windowPrev?'<span class="pill">Previous <b>'+state.windowPrev+'</b></span>':'')
+  +'<button class="refresh" onclick="location.reload()">&#8635; Refresh</button></div></div>'
+  // KPIs
+  +'<div class="kpis">'
+  +'<div class="kpi"><div class="k-lbl">MTD Adoption % '+kInfo('kp1','MTD Adoption %','Actual items updated &#247; Expected items, month-to-date, summed across all clients. Expected = unique items with pending milestones (planned start &#8804; today, completion &#8800; 100%) accumulated since the 1st. Actual = expected items that received at least one user-driven update.')+'</div><div class="k-val" style="color:'+barColor(overall)+'">'+overall+'%</div><div class="k-sub">'+ta+' of '+te+' expected items updated</div></div>'
+  +'<div class="kpi"><div class="k-lbl">MTD Quality % '+kInfo('kp2','MTD Quality %','Total quality hits &#247; (total expected items &#215; 6). A quality hit = a category touched at least once on an expected item. The 6 categories: Progress, Comments, Issues, Critical Updates, Photos, Docs. Simple overall ratio &#8212; '+qhits+' hits out of a possible '+(te*6)+' this month.')+'</div><div class="k-val">'+wq+'%</div><div class="k-sub">'+qhits+' quality hits of '+(te*6)+' possible</div></div>'
+  +'<div class="kpi" style="background:#FBF5EA;border-color:#EFE3C8;"><div class="k-lbl">Window Momentum '+kInfo('kp3','Window Momentum','Sum of milestone-level Progress Change updates (date changes, % completion) across all clients in the current rolling 7-day window. Counts updates by anyone on any item &#8212; expected or not &#8212; so this measures raw activity, separate from the item-level MTD metrics.')+'</div><div class="k-val">'+Math.round(pccT)+'</div><div class="k-sub">progress changes this window</div>'+(momDelta!==0?'<span class="k-chip '+(momDelta>0?'up':'down')+'">'+(momDelta>0?'&#9650; +':'&#9660; &#8722;')+Math.abs(momDelta)+' vs prev window</span>':'')+'</div>'
+  +'<div class="kpi"><div class="k-lbl">Engaged '+kInfo('kp4','Engaged','Counted from the current 7-day window activity sheets: any client or expeditor with &#8220;Total Updates Done Current&#8221; greater than zero &#8212; even a single update of any type (progress, comment, issue, or critical update) counts.')+'</div><div class="k-val">'+engC+'<small>/'+clients.length+'</small> &#183; '+engE+'<small>/'+exps.length+'</small></div><div class="k-sub">clients &#183; expeditors with &#8805;1 update this window</div></div>'
+  +'</div>'
+  // explainer band
+  +'<div class="expl" id="explband"><div class="expl-h" onclick="document.getElementById(\'explband\').classList.toggle(\'open\')"><span>&#9432; How these numbers are calculated</span><span class="chev">&#9660;</span></div>'
+  +'<div class="expl-body"><div class="expl-grid">'
+  +'<div class="expl-card"><div class="expl-t">&#128203; Expected items</div><div class="expl-d">Every day we find milestones with <b>planned start &#8804; today</b> and <b>completion &#8800; 100%</b>, group them by item, and add new unique items to the month&#8217;s list. Once an item enters the list it stays until month-end. The count resets on the 1st.</div></div>'
+  +'<div class="expl-card"><div class="expl-t">&#9989; Actual updated</div><div class="expl-d">An expected item counts as updated when <b>any user-driven update</b> happens on any of its milestones &#8212; progress, dates, comments, issues, critical updates, photos, or docs. Binary per item: once counted, repeat updates don&#8217;t add. Cron/system updates don&#8217;t count.</div></div>'
+  +'<div class="expl-card"><div class="expl-t">&#11088; Quality signals</div><div class="expl-d">Six categories per item: <b>Progress, Comments, Issues, Critical Updates, Photos, Docs</b>. Each category counts max once per item. Quality % = total category hits &#247; (expected items &#215; 6). High quality means updates carry context, not just movement.</div></div>'
+  +'<div class="expl-card"><div class="expl-t">&#128200; Weekly activity</div><div class="expl-d">Separate from MTD: rolling <b>7-day windows</b> compare the current window&#8217;s update volume vs the previous window. Window counts are milestone-level and include updates by anyone on any item &#8212; shown in amber sections to keep them distinct from MTD metrics.</div></div>'
+  +'</div></div></div>'
+  // insights
+  +'<div class="ins-wrap">'
+  +insightHTML(state.insights.warn,'warn','Needs attention','&#9888;','ri1','<b>Rules:</b> Critical &#8212; client with &#8805;40 expected items and 0% adoption, or expeditor with &#8805;100 items and &#8804;2% adoption. Watch &#8212; adoption below 10% on &#8805;40 items, weekly progress falling by 30+, or uneven coverage (strong at one client, 0% at another). Top 8 shown, scroll for more.')
+  +insightHTML(state.insights.good,'good','Working well','&#10003;','ri2','<b>Rules:</b> Clients at &#8805;50% adoption or weekly momentum +50 or more. Expeditors at &#8805;50% adoption on 5+ items, or active on &#8805;50% of days this month. Top 8 shown.')
+  +'</div>'
+  // controls
+  +'<div class="ctrl">'
+  +'<div class="seg"><button data-v="clients" class="on" onclick="setView(\'clients\')">Clients</button><button data-v="exps" onclick="setView(\'exps\')">Expeditors</button></div>'
+  +'<input class="search" id="searchbox" placeholder="Search&#8230;" oninput="setSearch(this.value)">'
+  +'<div class="chips">'
+  +'<button class="chip on" data-s="all" onclick="setStatus(\'all\')">All</button>'
+  +'<button class="chip" data-s="good" onclick="setStatus(\'good\')">Good &#8805;50%</button>'
+  +'<button class="chip" data-s="building" onclick="setStatus(\'building\')">Building</button>'
+  +'<button class="chip" data-s="low" onclick="setStatus(\'low\')">Low</button>'
+  +'<button class="chip" data-s="none" onclick="setStatus(\'none\')">Not started</button></div>'
+  +'<select class="sortsel" onchange="setSort(this.value)">'
+  +'<option value="attention">Sort: Needs attention</option>'
+  +'<option value="adopt">Sort: Adoption %</option>'
+  +'<option value="expd">Sort: Expected items</option>'
+  +'<option value="momentum">Sort: Weekly momentum</option>'
+  +'<option value="name">Sort: Name A&#8211;Z</option></select>'
+  +'</div>'
+  +'<div class="grid" id="cardgrid"></div>'
+  +'<div class="modal-ov" id="mov" onclick="closeModal(event)"><div class="modal" id="mbox"></div></div>'
+  +'<div class="foot">Adoption % = actual items updated &#247; expected items (month-to-date, resets on the 1st). Expected = items with pending milestones. Quality % = category hits &#247; (expected &#215; 6 categories). Weekly figures compare rolling 7-day windows. &#8220;Needs attention&#8221; sort ranks by exposure &#215; adoption gap.</div>';
+  renderCards();
+  syncSticky();
+}
+/* ============ BOOT ============ */
+Promise.all([fetchCSV(URLS.evaClient),fetchCSV(URLS.evaExp),fetchCSV(URLS.winClient),fetchCSV(URLS.winExp),fetchCSV(URLS.granular),fetchCSV(URLS.updateDays)])
+.then(([ec,ee,wc,we,gr,ud])=>{
+  const evaC=ec?toObjects(parseCSV(ec)).filter(o=>col(o,E.ws)!==''):[];
+  const evaE=ee?toObjects(parseCSV(ee)).filter(o=>col(o,E.exp)!==''):[];
+  const winC=wc?toObjects(parseCSV(wc)).filter(o=>col(o,W.cname)!==''):[];
+  const winE=we?toObjects(parseCSV(we)).filter(o=>col(o,W.ename)!==''):[];
+  const gran=gr?toObjects(parseCSV(gr)).filter(o=>col(o,E.exp)!==''):[];
+  const days=ud?toObjects(parseCSV(ud)).filter(o=>col(o,U.exp)!==''):[];
+  if(!evaC.length&&!winC.length){document.getElementById('app').innerHTML='<div class="err">Could not load any data from Google Sheets. Check that the sheets are still published to the web.</div>';return;}
+  state.model=buildModel(evaC,evaE,winC,winE,gran,days);
+  state.insights=buildInsights(state.model.clients,state.model.exps);
+  state.period=evaC.length?col(evaC[0],E.period):'';
+  const rawWin=winC.length?col(winC[0],W.cur):'';
+  const rawPrev=winC.length?col(winC[0],W.prev):'';
+  state.windowPrev=rawPrev?rawPrev.split(' - ').map(s=>s.replace(/\s*\d{2}:\d{2}$/,'').trim().split(' ').slice(0,2).join(' ')).join(' \u2013 '):'';
+  state.window=rawWin?rawWin.split(' - ').map(s=>s.replace(/\s*\d{2}:\d{2}$/,'').trim().split(' ').slice(0,2).join(' ')).join(' \u2013 '):'';
+  renderApp();
+}).catch(err=>{document.getElementById('app').innerHTML='<div class="err">Could not load data.<br>'+err+'</div>';});
 </script>
 </body>
 </html>

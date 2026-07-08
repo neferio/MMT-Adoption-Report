@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MMT Adoption Report</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1a1a1a;}
+.page{max-width:960px;margin:0 auto;padding:32px 24px;}
+.rh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem;flex-wrap:wrap;gap:12px;}
+.rt{font-size:18px;font-weight:500;margin-bottom:4px;}
+.rs{font-size:13px;color:#6b6b68;}
+.wb{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:8px;padding:8px 12px;text-align:right;line-height:1.9;}
+.wb b{color:#1a1a1a;font-weight:500;}
+.ai-box{background:#f5f5f3;border-left:2px solid #534AB7;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:1.25rem;font-size:13px;line-height:1.6;}
+.ai-lbl{font-size:11px;font-weight:600;color:#534AB7;margin-bottom:6px;}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
+.sc{background:#f5f5f3;border-radius:8px;padding:12px 14px;border:0.5px solid #e0e0db;text-align:center;}
+.sl{font-size:12px;color:#6b6b68;margin-bottom:4px;}
+.sv{font-size:20px;font-weight:500;}
+.ss{font-size:11px;color:#6b6b68;border-top:0.5px solid #e0e0db;padding-top:5px;margin-top:6px;}
+.sec-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;margin-top:1.75rem;flex-wrap:wrap;gap:8px;}
+.sec-l{display:flex;align-items:center;gap:8px;}
+.st{font-size:15px;font-weight:500;}
+.sc2{font-size:12px;color:#6b6b68;background:#f5f5f3;border-radius:20px;padding:2px 10px;border:0.5px solid #e0e0db;}
+.srt{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6b68;}
+.srt select{font-size:12px;color:#1a1a1a;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:4px 8px;cursor:pointer;outline:none;}
+.wnote{font-size:12px;color:#6b6b68;background:#f5f5f3;border:0.5px solid #e0e0db;border-radius:6px;padding:6px 12px;margin-bottom:10px;}
+.pos{color:#3B6D11;font-weight:600;}
+.neg{color:#A32D2D;font-weight:600;}
+.lgrow{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
+.lglbl{font-size:11px;color:#6b6b68;}
+.qw{position:relative;display:inline-flex;align-items:center;}
+.qi{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#534AB7;color:#fff;font-size:11px;font-weight:700;cursor:pointer;user-select:none;}
+.qp{display:none;position:absolute;top:24px;left:0;z-index:200;background:#fff;border:1px solid #e0e0db;border-radius:10px;padding:12px 14px;min-width:270px;box-shadow:0 4px 16px rgba(0,0,0,.12);}
+.qp.open{display:block;}
+.qpt{font-size:12px;font-weight:600;margin-bottom:8px;}
+.qpr{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.qpct{font-size:11px;color:#6b6b68;min-width:80px;}
+.qpd{font-size:11px;color:#6b6b68;margin-top:8px;padding-top:8px;border-top:0.5px solid #e0e0db;line-height:1.5;}
+.badge{display:inline-flex;font-size:11px;padding:3px 8px;border-radius:20px;white-space:nowrap;font-weight:500;}
+.hq{background:#EAF3DE;color:#27500A;}
+.gq{background:#E6F1FB;color:#0C447C;}
+.mq{background:#FAEEDA;color:#633806;}
+.lq{background:#FCEBEB;color:#791F1F;}
+.sj{background:#EEEDFE;color:#3C3489;}
+.dm{background:#F1EFE8;color:#444441;}
+table{width:100%;border-collapse:collapse;table-layout:fixed;}
+thead tr{border-bottom:0.5px solid #e0e0db;}
+th{font-size:11px;font-weight:500;color:#6b6b68;text-align:left;padding:6px 8px;text-transform:uppercase;letter-spacing:.04em;}
+th.rc{text-align:center;}
+tbody tr{border-bottom:0.5px solid #e0e0db;}
+tbody tr:last-child{border-bottom:none;}
+td{padding:9px 8px;font-size:13px;vertical-align:middle;}
+.en{font-weight:500;font-size:13px;margin-bottom:4px;}
+.mc{text-align:center;}
+.mv{font-size:13px;font-weight:500;}
+.md{font-size:11px;margin-top:2px;}
+.du{color:#3B6D11;}
+.dd{color:#A32D2D;}
+.df{color:#6b6b68;}
+.qv{font-size:13px;font-weight:500;}
+.qna{font-size:13px;color:#6b6b68;}
+.loading{text-align:center;padding:80px 20px;color:#6b6b68;font-size:14px;}
+.err{text-align:center;padding:40px 20px;color:#791F1F;font-size:13px;background:#FCEBEB;border-radius:8px;margin:20px 0;}
+</style>
+</head>
+<body>
+<div class="page" id="root">
+  <div class="loading">Loading latest adoption data…</div>
+</div>
+
+<script>
+const CLIENT_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFqCmxwary53PMGZdDmkSqa44z6eZqX47TPL0hDr3IKxDKmdUaGKIguvJOZF5ozXhIDT3JjK9-kvy-/pub?gid=0&single=true&output=csv";
+const EXP_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTFOgugjEjEtm1tlHvnmHerS0b_6ySdWUXHsk8bUzHWO31YPUjmdu7XbPHMzHnSLHxWq2iR17b5ammh/pub?gid=0&single=true&output=csv";
+
+// ---- CSV parser (handles quoted fields) ----
+function parseCSV(text){
+  const rows=[]; let row=[], field='', inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQ){
+      if(c==='"'){ if(text[i+1]==='"'){field+='"';i++;} else inQ=false; }
+      else field+=c;
+    } else {
+      if(c==='"') inQ=true;
+      else if(c===',') {row.push(field);field='';}
+      else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}
+      else if(c==='\r'){}
+      else field+=c;
+    }
+  }
+  if(field.length>0||row.length>0){row.push(field);rows.push(row);}
+  return rows.filter(r=>r.length>1||(r.length===1&&r[0].trim()!==''));
+}
+function toObjects(rows){
+  const headers=rows[0].map(h=>h.trim());
+  return rows.slice(1).map(r=>{
+    const o={}; headers.forEach((h,i)=>o[h]=(r[i]||'').trim()); return o;
+  });
+}
+function num(v){ const n=parseInt(v,10); return isNaN(n)?0:n; }
+
+// ---- column resolver (tolerant to minor header differences) ----
+function col(obj, keys){
+  for(const k of keys){ if(k in obj) return obj[k]; }
+  // fuzzy: find header containing all words
+  const lowerKeys=Object.keys(obj);
+  for(const k of keys){
+    const want=k.toLowerCase();
+    const found=lowerKeys.find(h=>h.toLowerCase()===want);
+    if(found) return obj[found];
+  }
+  return '';
+}
+const C={
+  cur:['Current Window'], prev:['Previous Window'],
+  cname:['Client Name'], ename:['Expeditor Name'],
+  tuc:['Total Updates Done Current'], tup:['Total Updates Done Previous'],
+  pcp:['Progress Change Previous (last 7 Days)','Progress Change Previous (7 Days)'],
+  pcc:['Progress Change Current (7 Days)'],
+  pcd:['Progress Change Delta'],
+  cmp:['Comments Previous (last 7 Days)','Comments Previous (7 Days)'],
+  cmc:['Comments Current (7 Days)'],
+  cmd:['Comments Delta'],
+  isp:['Issues Previous (last 7 Days)','Issues Previous (7 Days)'],
+  isc:['Issues Current (7 Days)'],
+  isd:['Issues Delta'],
+  cup:['Critical Update Previous (last 7 Days)','Critical Update Previous (7 Days)'],
+  cuc:['Critical Update Current (7 Days)'],
+  cud:['Critical Update Delta']
+};
+
+// ---- formatting ----
+function deltaFmt(v){
+  v=num(v);
+  if(v>0) return '<div class="md du">+'+v+'</div>';
+  if(v<0) return '<div class="md dd">&#8722;'+Math.abs(v)+'</div>';
+  return '<div class="md df">&#8212;</div>';
+}
+function qualityBadge(pc,qs,isClient){
+  if(pc===0&&qs===0) return isClient?['dm','Dormant']:['dm','Inactive'];
+  if(pc===0&&qs>0)   return isClient?['sj','Subjective only']:['sj','Engaged &#183; No progress'];
+  const r=qs/pc*100;
+  if(r>=50) return ['hq','High quality'];
+  if(r>=20) return ['gq','Good quality'];
+  if(r>=10) return ['mq','Moderate'];
+  return ['lq','Low quality'];
+}
+function qualityPct(pc,qs){
+  if(pc===0) return '<span class="qna">&#8212;</span>';
+  return '<span class="qv">'+Math.round(qs/pc*100)+'%</span>';
+}
+function shortWindow(w){
+  // "23 Jun 2026 00:00 - 29 Jun 2026 23:59" -> "23 Jun – 29 Jun 2026"
+  if(!w) return '';
+  const parts=w.split(' - ');
+  if(parts.length!==2) return w;
+  const a=parts[0].replace(/\s*\d{2}:\d{2}$/,'').trim();
+  const b=parts[1].replace(/\s*\d{2}:\d{2}$/,'').trim();
+  const am=a.split(' '); // [23, Jun, 2026]
+  const bm=b.split(' ');
+  if(am.length>=2&&bm.length>=3){
+    return am[0]+' '+am[1]+' &#8211; '+bm[0]+' '+bm[1]+' '+bm[2];
+  }
+  return a+' &#8211; '+b;
+}
+
+// ---- row builders ----
+function buildRow(o,isClient){
+  const pc=num(col(o,C.pcc));
+  const qs=num(col(o,C.cmc))+num(col(o,C.isc))+num(col(o,C.cuc));
+  const [cls,lbl]=qualityBadge(pc,qs,isClient);
+  const name=isClient?col(o,C.cname):col(o,C.ename);
+  return '<tr data-name="'+name.toLowerCase()+'" data-progress="'+pc+'">'
+    +'<td><div class="en">'+name+'</div><span class="badge '+cls+'">'+lbl+'</span></td>'
+    +'<td class="mc"><div class="mv">'+pc+'</div>'+deltaFmt(col(o,C.pcd))+'</td>'
+    +'<td class="mc"><div class="mv">'+num(col(o,C.cmc))+'</div>'+deltaFmt(col(o,C.cmd))+'</td>'
+    +'<td class="mc"><div class="mv">'+num(col(o,C.isc))+'</div>'+deltaFmt(col(o,C.isd))+'</td>'
+    +'<td class="mc"><div class="mv">'+num(col(o,C.cuc))+'</div>'+deltaFmt(col(o,C.cud))+'</td>'
+    +'<td class="mc">'+qualityPct(pc,qs)+'</td>'
+    +'</tr>';
+}
+
+function legendBlock(idSuffix,isClient){
+  const sj=isClient?'Subjective only':'Engaged &#183; No progress';
+  const dm=isClient?'Dormant':'Inactive';
+  return '<div class="lgrow">'
+    +'<span class="lglbl">Quality badge</span>'
+    +'<div class="qw"><span class="qi" id="qi'+idSuffix+'">?</span>'
+    +'<div class="qp" id="qp'+idSuffix+'">'
+    +'<div class="qpt">How quality is calculated</div>'
+    +'<div class="qpr"><span class="badge hq">High quality</span><span class="qpct">&#8805; 50%</span></div>'
+    +'<div class="qpr"><span class="badge gq">Good quality</span><span class="qpct">20 &#8211; 49%</span></div>'
+    +'<div class="qpr"><span class="badge mq">Moderate</span><span class="qpct">10 &#8211; 19%</span></div>'
+    +'<div class="qpr"><span class="badge lq">Low quality</span><span class="qpct">&lt; 10%</span></div>'
+    +'<div class="qpr"><span class="badge sj">'+sj+'</span><span class="qpct">No progress</span></div>'
+    +'<div class="qpr"><span class="badge dm">'+dm+'</span><span class="qpct">All zero</span></div>'
+    +'<div class="qpd">Quality % = (Comments + Issues + Critical Updates) &#247; Progress Change. Measures how much context accompanies each progress update.</div>'
+    +'</div></div>'
+    +'<span class="badge hq">High quality</span>'
+    +'<span class="badge gq">Good quality</span>'
+    +'<span class="badge mq">Moderate</span>'
+    +'<span class="badge lq">Low quality</span>'
+    +'<span class="badge sj">'+sj+'</span>'
+    +'<span class="badge dm">'+dm+'</span>'
+    +'</div>';
+}
+
+function render(clientData,expData){
+  const cur=shortWindow(col(clientData[0],C.cur));
+  const prev=shortWindow(col(clientData[0],C.prev));
+  const today=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+
+  // summary
+  let tuc=0,tup=0,pcc=0,pcp=0,ac=0,ae=0;
+  clientData.forEach(o=>{tuc+=num(col(o,C.tuc));tup+=num(col(o,C.tup));pcc+=num(col(o,C.pcc));pcp+=num(col(o,C.pcp));if(num(col(o,C.pcc))>0)ac++;});
+  expData.forEach(o=>{if(num(col(o,C.pcc))>0)ae++;});
+
+  // sort A-Z by default
+  const cSorted=[...clientData].sort((a,b)=>col(a,C.cname).toLowerCase().localeCompare(col(b,C.cname).toLowerCase()));
+  const eSorted=[...expData].sort((a,b)=>col(a,C.ename).toLowerCase().localeCompare(col(b,C.ename).toLowerCase()));
+
+  const clientRows=cSorted.map(o=>buildRow(o,true)).join('');
+  const expRows=eSorted.map(o=>buildRow(o,false)).join('');
+
+  const headerRow='<tr><th style="width:22%">NAMECOL</th><th class="rc" style="width:14%">Progress change</th><th class="rc" style="width:11%">Comments</th><th class="rc" style="width:10%">Issues</th><th class="rc" style="width:13%">Critical updates</th><th class="rc" style="width:10%">Quality %</th></tr>';
+  const wnote='<div class="wnote"><span class="pos">+</span> / <span class="neg">&#8722;</span> values compare current window vs previous window &nbsp;&#183;&nbsp; Previous: <strong>'+prev+'</strong> &nbsp;&#183;&nbsp; Current: <strong>'+cur+'</strong></div>';
+
+  document.getElementById('root').innerHTML=
+    '<div class="rh"><div><p class="rt">MMT adoption report</p><p class="rs">Generated on '+today+'</p></div>'
+    +'<div class="wb"><div>Current window &nbsp;<b>'+cur+'</b></div><div>Previous window <b>'+prev+'</b></div></div></div>'
+    +'<div class="sg">'
+    +'<div class="sc"><div class="sl">Total updates</div><div class="sv">'+tuc+'</div><div class="ss">vs '+tup+' in previous window</div></div>'
+    +'<div class="sc"><div class="sl">Progress changes</div><div class="sv">'+pcc+'</div><div class="ss">vs '+pcp+' in previous window</div></div>'
+    +'<div class="sc"><div class="sl">Active clients</div><div class="sv">'+ac+' / '+clientData.length+'</div><div class="ss">Progress change &gt; 0 in current window</div></div>'
+    +'<div class="sc"><div class="sl">Active expeditors</div><div class="sv">'+ae+' / '+expData.length+'</div><div class="ss">Progress change &gt; 0 in current window</div></div>'
+    +'</div>'
+    // client
+    +'<div class="sec-top"><div class="sec-l"><span class="st">Client activity</span><span class="sc2">'+clientData.length+' clients</span></div>'
+    +'<div class="srt">Sort by <select onchange="sortTable(\'cb\',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div></div>'
+    +wnote
+    +legendBlock('c',true)
+    +'<table><thead>'+headerRow.replace('NAMECOL','Client')+'</thead><tbody id="cb">'+clientRows+'</tbody></table>'
+    // expeditor
+    +'<div class="sec-top" style="margin-top:2rem;"><div class="sec-l"><span class="st">Expeditor activity</span><span class="sc2">'+expData.length+' expeditors</span></div>'
+    +'<div class="srt">Sort by <select onchange="sortTable(\'eb\',this.value)"><option value="name">Name (A&#8211;Z)</option><option value="progress">Progress change</option></select></div></div>'
+    +wnote
+    +legendBlock('e',false)
+    +'<table><thead>'+headerRow.replace('NAMECOL','Expeditor')+'</thead><tbody id="eb">'+expRows+'</tbody></table>';
+
+  // wire popups
+  ['c','e'].forEach(s=>{
+    const icon=document.getElementById('qi'+s);
+    if(icon) icon.addEventListener('click',function(e){e.stopPropagation();togglePopup('qp'+s);});
+  });
+}
+
+function togglePopup(id){
+  const p=document.getElementById(id);
+  document.querySelectorAll('.qp').forEach(x=>{if(x.id!==id)x.classList.remove('open');});
+  p.classList.toggle('open');
+}
+document.addEventListener('click',()=>document.querySelectorAll('.qp').forEach(p=>p.classList.remove('open')));
+
+function sortTable(id,mode){
+  const tbody=document.getElementById(id);
+  const rows=Array.prototype.slice.call(tbody.querySelectorAll('tr'));
+  rows.sort((a,b)=>{
+    if(mode==='name') return a.dataset.name.localeCompare(b.dataset.name);
+    return parseInt(b.dataset.progress)-parseInt(a.dataset.progress);
+  });
+  rows.forEach(r=>tbody.appendChild(r));
+}
+
+// ---- resilient fetch: direct first, then CORS proxy fallbacks ----
+function fetchCSV(url){
+  const attempts=[
+    url,
+    'https://corsproxy.io/?url='+encodeURIComponent(url),
+    'https://api.allorigins.win/raw?url='+encodeURIComponent(url)
+  ];
+  let i=0;
+  function tryNext(){
+    if(i>=attempts.length) return Promise.reject(new Error('All fetch attempts failed'));
+    const u=attempts[i++];
+    return fetch(u).then(r=>{
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.text();
+    }).then(t=>{
+      // guard: proxies sometimes return an HTML error page
+      if(t.trim().toLowerCase().startsWith('<!doctype')||t.trim().toLowerCase().startsWith('<html')) throw new Error('Non-CSV response');
+      return t;
+    }).catch(()=>tryNext());
+  }
+  return tryNext();
+}
+
+// ---- load ----
+Promise.all([ fetchCSV(CLIENT_URL), fetchCSV(EXP_URL) ]).then(([ctext,etext])=>{
+  const cData=toObjects(parseCSV(ctext)).filter(o=>col(o,C.cname).trim()!=='');
+  const eData=toObjects(parseCSV(etext)).filter(o=>col(o,C.ename).trim()!=='');
+  if(cData.length===0&&eData.length===0){
+    document.getElementById('root').innerHTML='<div class="err">No data found in the sheets. Please check the published links.</div>';
+    return;
+  }
+  render(cData,eData);
+}).catch(err=>{
+  document.getElementById('root').innerHTML='<div class="err">Could not load data from Google Sheets...<br>'+err+'<br><br>Check that both sheets are still published to the web (File &#8594; Share &#8594; Publish to web &#8594; CSV).</div>';
+});
+</script>
+</body>
+</html>
